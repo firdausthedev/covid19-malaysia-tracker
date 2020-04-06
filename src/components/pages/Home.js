@@ -23,6 +23,10 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export default Home;

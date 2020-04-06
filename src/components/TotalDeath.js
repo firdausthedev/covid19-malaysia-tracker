@@ -61,6 +61,14 @@ const TotalCasesStyle = styled.div`
       font-weight: 400;
     }
   }
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1rem;
+    }
+    div p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export default TotalDeath;

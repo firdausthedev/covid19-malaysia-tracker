@@ -53,7 +53,7 @@ const Nav = styled.nav`
 
   a {
     color: #fff;
-    background: black;
+    background: #1e2022;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     margin: 0 0.25rem;
@@ -72,6 +72,20 @@ const Nav = styled.nav`
 
     h2 {
       font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    .title-wrapper {
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      h2 {
+        font-size: 0.8rem;
+      }
+    }
+    a {
+      margin: 2rem 0.25rem;
     }
   }
 `;
