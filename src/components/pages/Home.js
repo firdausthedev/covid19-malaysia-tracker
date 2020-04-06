@@ -26,6 +26,7 @@ const Grid = styled.div`
 
   @media (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0rem;
   }
 `;
 
