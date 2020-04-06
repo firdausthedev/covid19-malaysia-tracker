@@ -78,11 +78,8 @@ const NewCaseStyle = styled.div`
     h2 {
       font-size: 1rem;
     }
-    div {
-      padding-top: 0;
-      p {
-        font-size: 1rem;
-      }
+    div p {
+      font-size: 1rem;
     }
   }
 `;
