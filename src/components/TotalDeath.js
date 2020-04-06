@@ -13,7 +13,6 @@ const TotalDeath = () => {
   const getTotalCases = async () => {
     const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/all');
     const total = res.data.deaths.locations[153].latest;
-    console.log(res.data);
     isLoading(false);
     setTotalCases(total);
   };
