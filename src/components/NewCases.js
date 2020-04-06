@@ -18,11 +18,11 @@ const NewCases = () => {
   };
 
   const getPreviousCase = (numOfArray) => {
-    let a = newCase[numOfArray - 1];
-    let b = newCase[numOfArray - 2];
-    let c = a != null ? Object.values(a) : {};
-    let d = a != null ? Object.values(b) : {};
-    const total = parseInt(c[1]) - parseInt(d[1]);
+    let todayCase = newCase[numOfArray - 1];
+    let yesterdayCase = newCase[numOfArray - 2];
+    let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
+    let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
+    const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
     return total;
   };
   return (
