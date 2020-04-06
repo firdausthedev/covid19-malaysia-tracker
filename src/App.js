@@ -10,7 +10,7 @@ function App() {
       <div className='App'>
         <Navbar />
         <div className='container'>
-          <Home />>
+          <Home />
         </div>
       </div>
     </Router>
