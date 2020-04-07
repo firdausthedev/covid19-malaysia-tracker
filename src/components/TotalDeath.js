@@ -7,12 +7,14 @@ const TotalDeath = () => {
   const [totalCases, setTotalCases] = useState(0);
 
   useEffect(() => {
-    getTotalCases();
+    getTotalDeathCases();
   }, []);
 
-  const getTotalCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/all');
-    const total = res.data.deaths.locations[153].latest;
+  const getTotalDeathCases = async () => {
+    const res = await axios.get(
+      'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=MY'
+    );
+    const total = res.data.latest.deaths;
     isLoading(false);
     setTotalCases(total);
   };

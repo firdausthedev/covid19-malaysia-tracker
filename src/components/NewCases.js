@@ -11,8 +11,9 @@ const NewCases = () => {
   }, []);
 
   const getTotalNewCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/all');
-    const history2 = res.data.confirmed.locations[153].history;
+    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
+    // console.log(res.data.location.timelines.confirmed.timeline);
+    const history2 = res.data.location.timelines.confirmed.timeline;
     setNewCase(Object.entries(history2));
     isLoading(false);
   };

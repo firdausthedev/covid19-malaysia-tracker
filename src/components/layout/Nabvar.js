@@ -13,7 +13,11 @@ const Navbar = ({ icon, title }) => {
         </div>
         <ul>
           <li>
-            <a href='https://github.com/firdausthedev' rel='noopener noreferrer' target='_blank'>
+            <a
+              href='https://github.com/firdausthedev/covid19-malaysia-tracker'
+              rel='noopener noreferrer'
+              target='_blank'
+            >
               <li className='fab fa-github' /> Check out codes
             </a>
           </li>

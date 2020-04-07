@@ -13,11 +13,15 @@ const TotalCases = () => {
   }, []);
 
   const getTotalCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/all');
-    const total = res.data.confirmed.locations[153].latest;
-    const country = res.data.confirmed.locations[153].country;
-    const lastUpd = res.data.confirmed.last_updated;
-    console.log(res.data.confirmed.last_updated);
+    const res = await axios.get(
+      'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=MY'
+    );
+
+    // console.log(res.data);
+    const total = res.data.latest.confirmed;
+    const country = res.data.locations[0].country;
+    const lastUpd = res.data.locations[0].last_updated;
+    // console.log(lastUpd);
     const date = new Date(lastUpd);
     const nowDate = date.toUTCString();
     setLastUpdated(nowDate);
@@ -34,7 +38,7 @@ const TotalCases = () => {
           Comfirmed cases :{' '}
           <strong>
             {!loading ? totalCases : 'loading..'}
-            {console.log(lastUpdated.substring(0, 24))}
+            {/* {console.log(lastUpdated.substring(0, 24))} */}
           </strong>
         </p>
         <p id='last-update'>
