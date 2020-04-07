@@ -55,7 +55,7 @@ const NewCaseStyle = styled.div`
   flex-direction: column;
 
   h2 {
-    background: #384259;
+    background: #27496d;
     color: #fff;
     flex: 15%;
     align-content: center;

@@ -13,7 +13,7 @@ const HistoryCases = () => {
   const getTotalHistoryCases = async () => {
     const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
     const history2 = res.data.location.timelines.confirmed.timeline;
-    console.log(history2);
+    // console.log(history2);
 
     newHistory(Object.entries(history2));
     isLoading(false);
@@ -24,14 +24,27 @@ const HistoryCases = () => {
     return date.toUTCString();
   };
 
+  const getDiff = (singleHistory, nextHistoryArr, index) => {
+    if (index === 0) {
+      return '';
+    } else {
+      if (singleHistory[1] - nextHistoryArr[1] === 0) {
+        return '';
+      } else return `+${singleHistory[1] - nextHistoryArr[1]}`;
+    }
+
+    //return b;
+  };
+
   return (
     <Scrollbars autoHide style={{ height: 300 }}>
       <NewCaseStyle>
         <h2>History : Confirmed Cases</h2>
         <div>
-          {history.map((h) => (
-            <li>
+          {history.map((h, index) => (
+            <li key={h[0]}>
               {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
+              <span>{getDiff(h, history[index - 1], index)}</span>
             </li>
           ))}
         </div>
@@ -58,11 +71,17 @@ const NewCaseStyle = styled.div`
     li {
       font-size: 1.2rem;
       list-style-type: none;
+
+      span {
+        color: #f73859;
+        margin-left: 10px;
+      }
     }
   }
 
   h2 {
-    background: #384259;
+    background: #0c7b93;
+    max-height: 20rem;
     color: #fff;
     flex: 15%;
     align-content: center;
