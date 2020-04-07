@@ -75,7 +75,7 @@ const NewCaseStyle = styled.div`
     h2 {
       font-size: 1rem;
     }
-    div p {
+    div li {
       font-size: 1rem;
     }
   }
