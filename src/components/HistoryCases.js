@@ -80,7 +80,7 @@ const NewCaseStyle = styled.div`
   }
 
   h2 {
-    background: #0c7b93;
+    background: #1e2022;
     max-height: 20rem;
     color: #fff;
     flex: 15%;
