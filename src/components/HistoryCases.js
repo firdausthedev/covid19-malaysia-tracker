@@ -70,6 +70,15 @@ const NewCaseStyle = styled.div`
     align-items: center;
     justify-content: center;
   }
+  @media (max-width: 480px) {
+    margin-bottom: 1.2rem;
+    h2 {
+      font-size: 1rem;
+    }
+    div p {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export default HistoryCases;
