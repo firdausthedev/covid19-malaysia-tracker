@@ -35,7 +35,7 @@ const TotalCases = () => {
       <h2>Total Cases in {country}</h2>
       <div>
         <p>
-          Comfirmed cases :{' '}
+          Confirmed cases :{' '}
           <strong>
             {!loading ? totalCases : 'loading..'}
             {/* {console.log(lastUpdated.substring(0, 24))} */}

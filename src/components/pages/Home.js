@@ -4,6 +4,7 @@ import TotalCases from './../TotalCases';
 import styled from 'styled-components';
 import NewCases from '../NewCases';
 import TotalDeath from './../TotalDeath';
+import HistoryCases from '../HistoryCases';
 const Home = () => {
   return (
     <Fragment>
@@ -15,6 +16,7 @@ const Home = () => {
           <TotalDeath />
         </div>
       </Grid>
+      <HistoryCases />
     </Fragment>
   );
 };
