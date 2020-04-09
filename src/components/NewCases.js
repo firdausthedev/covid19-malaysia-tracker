@@ -1,42 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 
-const NewCases = () => {
-  const [newCase, setNewCase] = useState([]);
-  const [loading, isLoading] = useState(true);
-
-  useEffect(() => {
-    getTotalNewCases();
-  }, []);
-
-  const getTotalNewCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
-    // console.log(res.data.location.timelines.confirmed.timeline);
-    const history2 = res.data.location.timelines.confirmed.timeline;
-    setNewCase(Object.entries(history2));
-    isLoading(false);
-  };
-
-  const getPreviousCase = (numOfArray) => {
-    let todayCase = newCase[numOfArray - 1];
-    let yesterdayCase = newCase[numOfArray - 2];
-    let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
-    let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
-    const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
-    return total;
-  };
+const NewCases = ({ data }) => {
   return (
     <NewCaseStyle>
       <h2>New Cases</h2>
 
       <div>
         <p>
-          <strong>
-            {!isNaN(getPreviousCase(parseInt(newCase.length)))
-              ? getPreviousCase(parseInt(newCase.length))
-              : 'loading..'}
-          </strong>
+          <strong>{data.todayCases ? data.todayCases : 'loading..'}</strong>
         </p>
       </div>
     </NewCaseStyle>

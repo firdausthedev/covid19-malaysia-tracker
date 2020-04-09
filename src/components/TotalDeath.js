@@ -1,30 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 
-const TotalDeath = () => {
-  const [loading, isLoading] = useState(true);
-  const [totalCases, setTotalCases] = useState(0);
-
-  useEffect(() => {
-    getTotalDeathCases();
-  }, []);
-
-  const getTotalDeathCases = async () => {
-    const res = await axios.get(
-      'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=MY'
-    );
-    const total = res.data.latest.deaths;
-    isLoading(false);
-    setTotalCases(total);
-  };
-
+const TotalDeath = ({ data }) => {
   return (
     <TotalCasesStyle>
       <h2>Total Deaths</h2>
       <div>
         <p>
-          <strong>{!loading ? totalCases : 'loading..'}</strong>
+          <strong>{data.deaths ? data.deaths : 'loading..'}</strong>
         </p>
       </div>
     </TotalCasesStyle>

@@ -1,48 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 
-const TotalCases = () => {
-  const [loading, isLoading] = useState(true);
-  const [lastUpdated, setLastUpdated] = useState('');
-  const [country, setCountry] = useState('');
-  const [totalCases, setTotalCases] = useState(0);
-
-  useEffect(() => {
-    getTotalCases();
-  }, []);
-
-  const getTotalCases = async () => {
-    const res = await axios.get(
-      'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=MY'
-    );
-
-    // console.log(res.data);
-    const total = res.data.latest.confirmed;
-    const country = res.data.locations[0].country;
-    const lastUpd = res.data.locations[0].last_updated;
-    // console.log(lastUpd);
-    const date = new Date(lastUpd);
-    const nowDate = date.toUTCString();
-    setLastUpdated(nowDate);
-    isLoading(false);
-    setTotalCases(total);
-    setCountry(country);
-  };
-
+const TotalCases = ({ data }) => {
   return (
     <TotalCasesStyle>
-      <h2>Total Cases in {country}</h2>
+      <h2>Total Cases in {data.country}</h2>
       <div>
         <p>
-          Confirmed cases :{' '}
-          <strong>
-            {!loading ? totalCases : 'loading..'}
-            {/* {console.log(lastUpdated.substring(0, 24))} */}
-          </strong>
+          Confirmed cases : <strong>{data.cases ? data.cases : 'loading...'}</strong>
         </p>
-        <p id='last-update'>
-          Last updated: <strong>{lastUpdated.substring(4, 22)}</strong>
+        <p className='sub-heading'>
+          Active cases: <strong>{data.active}</strong>
+        </p>{' '}
+        <p className='sub-heading'>
+          Critical cases: <strong>{data.critical}</strong>
+        </p>
+        <p className='sub-heading'>
+          Recovered: <strong className='green'>{data.recovered}</strong>
         </p>
       </div>
     </TotalCasesStyle>
@@ -59,6 +33,10 @@ const TotalCasesStyle = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  .green {
+    color: green;
+  }
 
   h2 {
     background: #1e2022;
@@ -77,12 +55,13 @@ const TotalCasesStyle = styled.div`
     flex-direction: column;
     padding-top: 10px;
 
-    #last-update {
+    .sub-heading {
       font-size: 1.2rem;
     }
     p {
       font-size: 2rem;
       font-weight: 400;
+      text-align: center;
     }
   }
 
@@ -91,7 +70,7 @@ const TotalCasesStyle = styled.div`
     h2 {
       font-size: 1rem;
     }
-    div #last-update {
+    div .sub-heading {
       font-size: 0.8rem;
     }
     div p {
