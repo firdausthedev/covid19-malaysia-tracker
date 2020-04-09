@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { Scrollbars } from 'react-custom-scrollbars';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 const HistoryCases = () => {
@@ -39,7 +40,7 @@ const HistoryCases = () => {
     <NewCaseStyle>
       <h2>History : Confirmed Cases</h2>
       <div>
-        <PerfectScrollbar>
+        <Scrollbars style={{ height: 300 }} autoHide>
           {history
             .map((h, index) => (
               <li key={h[0]}>
@@ -48,7 +49,7 @@ const HistoryCases = () => {
               </li>
             ))
             .reverse()}
-        </PerfectScrollbar>
+        </Scrollbars>
       </div>
     </NewCaseStyle>
   );

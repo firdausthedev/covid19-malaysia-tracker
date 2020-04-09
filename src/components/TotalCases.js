@@ -94,6 +94,18 @@ const Card = styled.div`
   @media (max-width: 588px) {
     div {
       grid-template-columns: repeat(2, 1fr);
+
+      .card {
+        h2 {
+          font-size: 2rem;
+          margin: 0rem 0;
+        }
+        p {
+          font-size: 1rem;
+          text-align: center;
+          color: #333;
+        }
+      }
     }
   }
 `;
