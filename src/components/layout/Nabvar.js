@@ -70,12 +70,30 @@ const Nav = styled.nav`
   }
 
   .title-wrapper {
-    background: #fff;
+    background: white;
     padding: 0.5rem 1rem;
     border-radius: 10px;
 
     h2 {
       font-size: 1.2rem;
+    }
+
+    i {
+      transform: scale(1);
+      animation: pulse 2s linear infinite;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1.3);
+      }
+
+      70% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.3);
+      }
     }
   }
 

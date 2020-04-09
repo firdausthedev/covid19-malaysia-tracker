@@ -59,10 +59,11 @@ const TodayDate = () => {
 
 const DayTitleContainer = styled.div`
   text-align: center;
-  padding: 0.5rem 2rem;
+  padding: 0.7rem 0rem;
   border-radius: 10px;
   margin: auto;
   /* background-color: #e5e5e5; */
+  background: white;
   border: 2px solid #e5e5e5;
   box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
 `;

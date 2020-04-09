@@ -18,9 +18,7 @@ const NewCases = ({ data }) => {
 const NewCaseStyle = styled.div`
   margin-top: 1.2rem;
   height: 10rem;
-  border: 1px;
   border-radius: 10px;
-  border: 1px solid #e5e5e5;
   box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
   overflow: hidden;
   display: flex;

@@ -38,15 +38,6 @@ ul {
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
-  background-color: #fff;
+  background-color: #eeeef3;
   color: #333;
-}
-
-.btn-primary,
-.bg-primary,
-.badge-primary,
-.alert-primary {
-  background: var(--primary-color);
-  color: #fff;
 }

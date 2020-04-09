@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 const HistoryCases = () => {
   const [history, newHistory] = useState([]);
-  const [loading, isLoading] = useState(true);
 
   useEffect(() => {
     getTotalHistoryCases();
@@ -16,7 +17,6 @@ const HistoryCases = () => {
     // console.log(history2);
 
     newHistory(Object.entries(history2));
-    isLoading(false);
   };
 
   const getDate = (dateData) => {
@@ -37,35 +37,38 @@ const HistoryCases = () => {
   };
 
   return (
-    <Scrollbars autoHide style={{ height: 300 }}>
-      <NewCaseStyle>
-        <h2>History : Confirmed Cases</h2>
-        <div>
-          {history.map((h, index) => (
-            <li key={h[0]}>
-              {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
-              <span>{getDiff(h, history[index - 1], index)}</span>
-            </li>
-          ))}
-        </div>
-      </NewCaseStyle>
-    </Scrollbars>
+    <NewCaseStyle>
+      <h2>History : Confirmed Cases</h2>
+      <div>
+        <PerfectScrollbar>
+          {history
+            .map((h, index) => (
+              <li key={h[0]}>
+                {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
+                <span>{getDiff(h, history[index - 1], index)}</span>
+              </li>
+            ))
+            .reverse()}
+        </PerfectScrollbar>
+      </div>
+    </NewCaseStyle>
   );
 };
 
 const NewCaseStyle = styled.div`
   margin-top: 1.2rem;
-  border: 1px;
   border-radius: 10px;
-  border: 1px solid #e5e5e5;
   box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
   overflow: hidden;
   display: flex;
+
   flex-direction: column;
   margin-bottom: 1.2rem;
 
   div {
     padding: 10px;
+    background: white;
+    max-height: 20rem;
     /* background: red; */
     text-align: center;
     li {
@@ -81,7 +84,6 @@ const NewCaseStyle = styled.div`
 
   h2 {
     background: #1e2022;
-    max-height: 20rem;
     color: #fff;
     flex: 15%;
     align-content: center;
