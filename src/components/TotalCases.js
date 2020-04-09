@@ -16,7 +16,7 @@ const TotalCases = ({ data }) => {
         </div>
         <div className='card'>
           <h2>{data.active}</h2>
-          <p>Active active</p>
+          <p>Active cases</p>
         </div>
         <div className='card'>
           <h2>{data.recovered}</h2>
