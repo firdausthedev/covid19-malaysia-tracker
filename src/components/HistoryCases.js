@@ -41,7 +41,7 @@ const HistoryCases = () => {
     <NewCaseStyle>
       <h2>History : Confirmed Cases</h2>
       <div id='graph-btn-container'>
-        <Link to='/covid19-malaysia-tracker/graph'>Graphs</Link>
+        <Link to='/graph'>Graphs</Link>
       </div>
       <div>
         <Scrollbars style={{ height: 300 }} autoHide>

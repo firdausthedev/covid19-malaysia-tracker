@@ -55,7 +55,7 @@ const Graph = () => {
     <GraphDiv>
       <div id='title'>
         <div>
-          <Link to='/covid19-malaysia-tracker'>Back</Link>
+          <Link to='/'>Back</Link>
         </div>
         <h2>Total Confirmed Cases by Day</h2>
         <div></div>

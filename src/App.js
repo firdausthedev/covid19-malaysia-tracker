@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import './App.css';
 import Navbar from './components/layout/Nabvar';
@@ -7,17 +7,15 @@ import Graph from './components/pages/Graph';
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename='/'>
       <div className='App'>
         <Navbar />
         <div className='container'>
-          <Switch>
-            <Route exact path='/covid19-malaysia-tracker/graph' component={Graph} />
-            <Route component={Home} />
-          </Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/graph' component={Graph} />
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
