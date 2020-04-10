@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const TotalCases = ({ data }) => {
+  const [newCase, setNewCase] = useState([]);
+  useEffect(() => {
+    getTotalNewCases();
+  }, []);
+
+  const getTotalNewCases = async () => {
+    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
+    const history2 = res.data.location.timelines.confirmed.timeline;
+    setNewCase(Object.entries(history2));
+  };
+  const getPreviousCase = (numOfArray) => {
+    let todayCase = newCase[numOfArray - 1];
+    let yesterdayCase = newCase[numOfArray - 2];
+    let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
+    let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
+    const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
+    return total;
+  };
   return (
     <Card>
       <h2>{data.country}</h2>
@@ -11,7 +30,9 @@ const TotalCases = ({ data }) => {
           <p>Confirmed Cases</p>
         </div>
         <div className='card'>
-          <h2>{data.todayCases}</h2>
+          <h2>
+            {data.todayCases === 0 ? getPreviousCase(parseInt(newCase.length)) : data.todayCases}
+          </h2>
           <p>New Cases</p>
         </div>
         <div className='card'>
@@ -106,6 +127,12 @@ const Card = styled.div`
           color: #333;
         }
       }
+    }
+  }
+  @media (max-width: 420px) {
+    h2 {
+      text-align: center;
+      font-size: 1.1rem;
     }
   }
 `;
