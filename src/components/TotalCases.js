@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
 const TotalCases = ({ data }) => {
-  const [newCase, setNewCase] = useState([]);
   const [loading, isLoading] = useState(true);
+  const [newCase, setNewCase] = useState([]);
   useEffect(() => {
     getTotalNewCases();
   }, []);
@@ -12,8 +13,8 @@ const TotalCases = ({ data }) => {
   const getTotalNewCases = async () => {
     const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
     const history2 = res.data.location.timelines.confirmed.timeline;
-    setNewCase(Object.entries(history2));
     isLoading(false);
+    setNewCase(Object.entries(history2));
   };
   const getPreviousCase = (numOfArray) => {
     let todayCase = newCase[numOfArray - 1];
@@ -21,7 +22,7 @@ const TotalCases = ({ data }) => {
     let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
     let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
     const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
-    return !loading ? total : 'loading..';
+    return !loading ? total : '';
   };
   return (
     <Card>
@@ -29,29 +30,33 @@ const TotalCases = ({ data }) => {
       <div>
         <div className='card'>
           <h2>{data.cases}</h2>
-          <p>Confirmed Cases</p>
+          <LoadingParas loading={loading}>Confirmed Cases</LoadingParas>
         </div>
         <div className='card'>
           <h2>
             {data.todayCases === 0 ? getPreviousCase(parseInt(newCase.length)) : data.todayCases}
           </h2>
-          <p>New Cases</p>
+          <LoadingParas loading={loading}>New Cases</LoadingParas>
         </div>
         <div className='card'>
           <h2>{data.active}</h2>
-          <p>Active cases</p>
+          <LoadingParas loading={loading}>Active cases</LoadingParas>
         </div>
         <div className='card'>
           <h2>{data.recovered}</h2>
-          <p className='green'>Recovered</p>
+          <LoadingParas loading={loading} className='green'>
+            Recovered
+          </LoadingParas>
         </div>
         <div className='card'>
           <h2>{data.critical}</h2>
-          <p>Critical</p>
+          <LoadingParas loading={loading}>Critical</LoadingParas>
         </div>
         <div className='card'>
           <h2>{data.deaths}</h2>
-          <p className='red'>Total Deaths</p>
+          <LoadingParas loading={loading} className='red'>
+            Total Deaths
+          </LoadingParas>
         </div>
       </div>
     </Card>
