@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
-const TotalCases = ({ data }) => {
+const TotalCases = ({ data, flag }) => {
   const [loading, isLoading] = useState(true);
   const [newCase, setNewCase] = useState([]);
   useEffect(() => {
@@ -26,34 +26,39 @@ const TotalCases = ({ data }) => {
   };
   return (
     <Card>
-      <h2>{data.country}</h2>
+      <h2>
+        {data.country}
+        <span>
+          <img src={flag} alt={data.country} className='img-flag' />
+        </span>
+      </h2>
       <div>
         <div className='card'>
-          <h2>{data.cases}</h2>
+          <LoadingHeaders loading={loading}>{data.cases}</LoadingHeaders>
           <LoadingParas loading={loading}>Confirmed Cases</LoadingParas>
         </div>
         <div className='card'>
-          <h2>
+          <LoadingHeaders loading={loading}>
             {data.todayCases === 0 ? getPreviousCase(parseInt(newCase.length)) : data.todayCases}
-          </h2>
+          </LoadingHeaders>
           <LoadingParas loading={loading}>New Cases</LoadingParas>
         </div>
         <div className='card'>
-          <h2>{data.active}</h2>
+          <LoadingHeaders loading={loading}>{data.active}</LoadingHeaders>
           <LoadingParas loading={loading}>Active cases</LoadingParas>
         </div>
         <div className='card'>
-          <h2>{data.recovered}</h2>
+          <LoadingHeaders loading={loading}>{data.recovered}</LoadingHeaders>
           <LoadingParas loading={loading} className='green'>
             Recovered
           </LoadingParas>
         </div>
         <div className='card'>
-          <h2>{data.critical}</h2>
+          <LoadingHeaders loading={loading}>{data.critical}</LoadingHeaders>
           <LoadingParas loading={loading}>Critical</LoadingParas>
         </div>
         <div className='card'>
-          <h2>{data.deaths}</h2>
+          <LoadingHeaders loading={loading}>{data.deaths}</LoadingHeaders>
           <LoadingParas loading={loading} className='red'>
             Total Deaths
           </LoadingParas>
@@ -61,31 +66,40 @@ const TotalCases = ({ data }) => {
       </div>
     </Card>
   );
-  /* <TotalCasesStyle>
-      <h2>Total Cases in {data.country}</h2>
-      <div>
-        <p>
-          Confirmed cases : <strong>{data.cases ? data.cases : 'loading...'}</strong>
-        </p>
-        <p className='sub-heading'>
-          Active cases: <strong>{data.active}</strong>
-        </p>{' '}
-        <p className='sub-heading'>
-          Critical cases: <strong>{data.critical}</strong>
-        </p>
-        <p className='sub-heading'>
-          Recovered: <strong className='green'>{data.recovered}</strong>
-        </p>
-      </div>
-    </TotalCasesStyle> */
+  // {/* /* <TotalCasesStyle>
+  //     <h2>Total Cases in {data.country}</h2>
+  //     <div>
+  //       <p>
+  //         Confirmed cases : <strong>{data.cases ? data.cases : 'loading...'}</strong>
+  //       </p>
+  //       <p className='sub-heading'>
+  //         Active cases: <strong>{data.active}</strong>
+  //       </p>{' '}
+  //       <p className='sub-heading'>
+  //         Critical cases: <strong>{data.critical}</strong>
+  //       </p>
+  //       <p className='sub-heading'>
+  //         Recovered: <strong className='green'>{data.recovered}</strong>
+  //       </p>
+  //     </div>
+  //   </TotalCasesStyle> */ */}
 };
 
 const Card = styled.div`
   h2 {
     font-size: 1.4rem;
     margin: 0.5rem 0;
+    span {
+      margin: 0;
+      padding: 0;
+      /* background: black; */
+    }
   }
 
+  .img-flag {
+    width: 2.2rem;
+    margin: auto 0.4rem;
+  }
   div {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -108,7 +122,7 @@ const Card = styled.div`
       p {
         font-size: 1.2rem;
         text-align: center;
-        color: #333;
+        color: #b0afad;
       }
       .green {
         color: #639a67;

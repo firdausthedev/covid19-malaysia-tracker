@@ -3,7 +3,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Link } from 'react-router-dom';
+// import PerfectScrollbar from 'react-perfect-scrollbar';
 const HistoryCases = () => {
   const [history, newHistory] = useState([]);
 
@@ -24,13 +25,13 @@ const HistoryCases = () => {
     return date.toUTCString();
   };
 
-  const getDiff = (singleHistory, nextHistoryArr, index) => {
+  const getDiff = (singleHistory, prevHustoryArray, index) => {
     if (index === 0) {
       return '';
     } else {
-      if (singleHistory[1] - nextHistoryArr[1] === 0) {
+      if (singleHistory[1] - prevHustoryArray[1] === 0) {
         return '';
-      } else return `+${singleHistory[1] - nextHistoryArr[1]}`;
+      } else return `+${singleHistory[1] - prevHustoryArray[1]}`;
     }
 
     //return b;
@@ -39,6 +40,9 @@ const HistoryCases = () => {
   return (
     <NewCaseStyle>
       <h2>History : Confirmed Cases</h2>
+      <div id='graph-btn-container'>
+        <Link to='/covid19-malaysia-tracker/graph'>Graphs</Link>
+      </div>
       <div>
         <Scrollbars style={{ height: 300 }} autoHide>
           {history
@@ -65,8 +69,34 @@ const NewCaseStyle = styled.div`
   flex-direction: column;
   margin-bottom: 1.2rem;
 
+  h2 {
+    background: #1e2022;
+    color: #fff;
+    flex: 15%;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+  #graph-btn-container {
+    padding-top: 5px;
+
+    a {
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 0.4rem 2rem;
+      background: #f4e04d;
+    }
+  }
+
   div {
-    padding: 10px;
+    padding-bottom: 10px;
     background: white;
     max-height: 20rem;
     /* background: red; */
@@ -81,16 +111,6 @@ const NewCaseStyle = styled.div`
       }
     }
   }
-
-  h2 {
-    background: #1e2022;
-    color: #fff;
-    flex: 15%;
-    align-content: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   @media (max-width: 480px) {
     margin-bottom: 1.2rem;
     h2 {
@@ -98,6 +118,11 @@ const NewCaseStyle = styled.div`
     }
     div li {
       font-size: 1rem;
+    }
+    #graph-btn-container a {
+      font-size: 0.8rem;
+      padding: 0.3rem 1.8rem;
+      border-radius: 8px;
     }
   }
 `;

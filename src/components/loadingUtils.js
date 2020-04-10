@@ -18,8 +18,8 @@ export const LoadingHeaders = (props) => {
           ? {
               background: '#eeeef3',
               color: '#eeeef3',
-              width: '6rem',
-              height: '2rem',
+              width: '10rem',
+              height: '5rem',
               marginBottom: '10px',
             }
           : {}

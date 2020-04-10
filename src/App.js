@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import './App.css';
 import Navbar from './components/layout/Nabvar';
+import Graph from './components/pages/Graph';
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
       <div className='App'>
         <Navbar />
         <div className='container'>
-          <Home />
+          <Switch>
+            <Route exact path='/covid19-malaysia-tracker/graph' component={Graph} />
+            <Route component={Home} />
+          </Switch>
         </div>
       </div>
     </Router>

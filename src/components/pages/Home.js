@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const Home = () => {
   const [data, setData] = useState({});
+  const [flag, setFlag] = useState('');
 
   useEffect(() => {
     getTotalCases();
@@ -14,6 +15,8 @@ const Home = () => {
 
   const getTotalCases = async () => {
     const res = await axios.get('https://corona.lmao.ninja/countries/458');
+    const flagSrc = res.data.countryInfo.flag;
+    setFlag(flagSrc);
     setData(res.data);
   };
 
@@ -21,7 +24,7 @@ const Home = () => {
     <Fragment>
       <TodayDate />
       <Grid>
-        <TotalCases data={data} />
+        <TotalCases data={data} flag={flag} />
       </Grid>
       <HistoryCases />
     </Fragment>
