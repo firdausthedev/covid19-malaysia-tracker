@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const TotalCases = ({ data }) => {
   const [newCase, setNewCase] = useState([]);
+  const [loading, isLoading] = useState(true);
   useEffect(() => {
     getTotalNewCases();
   }, []);
@@ -12,6 +13,7 @@ const TotalCases = ({ data }) => {
     const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
     const history2 = res.data.location.timelines.confirmed.timeline;
     setNewCase(Object.entries(history2));
+    isLoading(false);
   };
   const getPreviousCase = (numOfArray) => {
     let todayCase = newCase[numOfArray - 1];
@@ -19,7 +21,7 @@ const TotalCases = ({ data }) => {
     let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
     let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
     const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
-    return total;
+    return !loading ? total : 'loading..';
   };
   return (
     <Card>
