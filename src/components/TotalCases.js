@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
-const TotalCases = ({ data, flag }) => {
+const TotalCases = ({ data, flag, fatalityRate, recoveryRate }) => {
   const [loading, isLoading] = useState(true);
   const [newCase, setNewCase] = useState([]);
   useEffect(() => {
@@ -57,32 +57,36 @@ const TotalCases = ({ data, flag }) => {
           <LoadingHeaders loading={loading}>{data.critical}</LoadingHeaders>
           <LoadingParas loading={loading}>Critical</LoadingParas>
         </div>
+        {/* <div className='card two-infos'>
+          <div className='two-infos-items'>
+            <h2>{data.deaths}</h2>
+            <p>Total Deaths</p>
+          </div>
+
+          <div className='two-infos-items'>
+            <h2>{fatalityRate}%</h2>
+            <p>Fatality Rate</p>
+          </div> */}
+        {/* <LoadingHeaders loading={loading}>
+            {data.deaths} {fatalityRate}%
+          </LoadingHeaders> */}
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.deaths}</LoadingHeaders>
           <LoadingParas loading={loading} className='red'>
             Total Deaths
           </LoadingParas>
         </div>
+        <div className='card'>
+          <LoadingHeaders loading={loading}>{fatalityRate}%</LoadingHeaders>
+          <LoadingParas loading={loading}>Fatality Rate</LoadingParas>
+        </div>
+        <div className='card'>
+          <LoadingHeaders loading={loading}>{recoveryRate}%</LoadingHeaders>
+          <LoadingParas loading={loading}>Recovery Rate</LoadingParas>
+        </div>
       </div>
     </Card>
   );
-  // {/* /* <TotalCasesStyle>
-  //     <h2>Total Cases in {data.country}</h2>
-  //     <div>
-  //       <p>
-  //         Confirmed cases : <strong>{data.cases ? data.cases : 'loading...'}</strong>
-  //       </p>
-  //       <p className='sub-heading'>
-  //         Active cases: <strong>{data.active}</strong>
-  //       </p>{' '}
-  //       <p className='sub-heading'>
-  //         Critical cases: <strong>{data.critical}</strong>
-  //       </p>
-  //       <p className='sub-heading'>
-  //         Recovered: <strong className='green'>{data.recovered}</strong>
-  //       </p>
-  //     </div>
-  //   </TotalCasesStyle> */ */}
 };
 
 const Card = styled.div`
@@ -102,7 +106,7 @@ const Card = styled.div`
   }
   div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
     .card {
       background: white;
@@ -116,13 +120,13 @@ const Card = styled.div`
       h2 {
         color: black;
         text-align: center;
-        font-size: 3rem;
+        font-size: 2.2rem;
         margin: 0rem 0;
       }
       p {
         font-size: 1.2rem;
         text-align: center;
-        color: #b0afad;
+        color: #333;
       }
       .green {
         color: #639a67;
@@ -131,12 +135,31 @@ const Card = styled.div`
         color: #f73859;
       }
     }
-  }
+    .two-infos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      .two-infos-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 680px) {
+    div {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
   @media (max-width: 588px) {
     div {
       grid-template-columns: repeat(2, 1fr);
-
+      two-infos {
+        grid-template-columns: repeat(1, 1fr);
+      }
       .card {
         h2 {
           font-size: 2rem;
@@ -150,10 +173,21 @@ const Card = styled.div`
       }
     }
   }
+
   @media (max-width: 420px) {
     h2 {
       text-align: center;
       font-size: 1.1rem;
+    }
+    div {
+      grid-template-columns: repeat(2, 1fr);
+      .card {
+        height: 5rem;
+        h2 {
+          font-size: 1.3rem;
+          margin: 0rem 0;
+        }
+      }
     }
   }
 `;

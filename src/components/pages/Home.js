@@ -8,6 +8,8 @@ import axios from 'axios';
 const Home = () => {
   const [data, setData] = useState({});
   const [flag, setFlag] = useState('');
+  const [fatalityRate, setFatalityRate] = useState(0);
+  const [recoveryRate, setRecoveryRate] = useState(0);
 
   useEffect(() => {
     getTotalCases();
@@ -16,6 +18,11 @@ const Home = () => {
   const getTotalCases = async () => {
     const res = await axios.get('https://corona.lmao.ninja/countries/458');
     const flagSrc = res.data.countryInfo.flag;
+    const fatalityRateData = ((res.data.deaths / res.data.cases) * 100).toFixed(2);
+    const recoveryRateData = ((res.data.recovered / res.data.cases) * 100).toFixed(2);
+    // console.log(fatalityRateData);
+    setRecoveryRate(recoveryRateData);
+    setFatalityRate(fatalityRateData);
     setFlag(flagSrc);
     setData(res.data);
   };
@@ -24,7 +31,12 @@ const Home = () => {
     <Fragment>
       <TodayDate />
       <Grid>
-        <TotalCases data={data} flag={flag} />
+        <TotalCases
+          data={data}
+          flag={flag}
+          fatalityRate={fatalityRate}
+          recoveryRate={recoveryRate}
+        />
       </Grid>
       <HistoryCases />
     </Fragment>

@@ -8,9 +8,10 @@ const Graph = () => {
   const [totalNewCasesHistory, setTotalNewCasesHistory] = useState([]);
   const [config, setConfig] = useState({});
   const [diffConfig, setDiffConfig] = useState({});
+
   useEffect(() => {
     getTotalHistoryCases();
-  }, []);
+  });
 
   const getDiff = (singleHistory, prevHistroyArray, index) => {
     if (index === 0) {
@@ -87,6 +88,7 @@ const GraphDiv = styled.div`
         border-radius: 10px;
         padding: 0.4rem 2rem;
         background: #f4e04d;
+        box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
       }
     }
     h2 {
