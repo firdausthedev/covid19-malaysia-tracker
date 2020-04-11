@@ -133,12 +133,12 @@ const Card = styled.div`
     }
   }
   @media (max-width: 680px) {
-    div {
+    #card-container {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   @media (max-width: 588px) {
-    div {
+    #card-container {
       grid-template-columns: repeat(2, 1fr);
       two-infos {
         grid-template-columns: repeat(1, 1fr);
@@ -161,7 +161,7 @@ const Card = styled.div`
     h2 {
       font-size: 1.1rem;
     }
-    div {
+    #card-container {
       grid-template-columns: repeat(2, 1fr);
       .card {
         height: 5rem;
