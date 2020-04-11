@@ -1,21 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
-const TotalCases = ({ data, flag, fatalityRate, recoveryRate }) => {
-  const [loading, isLoading] = useState(true);
-  const [newCase, setNewCase] = useState([]);
-  useEffect(() => {
-    getTotalNewCases();
-  }, []);
-
-  const getTotalNewCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
-    const history2 = res.data.location.timelines.confirmed.timeline;
-    isLoading(false);
-    setNewCase(Object.entries(history2));
-  };
+const TotalCases = ({ data, flag, fatalityRate, recoveryRate, newCase, loading }) => {
   const getPreviousCase = (numOfArray) => {
     let todayCase = newCase[numOfArray - 1];
     let yesterdayCase = newCase[numOfArray - 2];
@@ -24,6 +11,7 @@ const TotalCases = ({ data, flag, fatalityRate, recoveryRate }) => {
     const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
     return !loading ? total : '';
   };
+
   return (
     <Card>
       <h2>
@@ -32,7 +20,8 @@ const TotalCases = ({ data, flag, fatalityRate, recoveryRate }) => {
           <img src={flag} alt={data.country} className='img-flag' />
         </span>
       </h2>
-      <div>
+
+      <div id='card-container'>
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.cases}</LoadingHeaders>
           <LoadingParas loading={loading}>Confirmed Cases</LoadingParas>
@@ -57,19 +46,6 @@ const TotalCases = ({ data, flag, fatalityRate, recoveryRate }) => {
           <LoadingHeaders loading={loading}>{data.critical}</LoadingHeaders>
           <LoadingParas loading={loading}>Critical</LoadingParas>
         </div>
-        {/* <div className='card two-infos'>
-          <div className='two-infos-items'>
-            <h2>{data.deaths}</h2>
-            <p>Total Deaths</p>
-          </div>
-
-          <div className='two-infos-items'>
-            <h2>{fatalityRate}%</h2>
-            <p>Fatality Rate</p>
-          </div> */}
-        {/* <LoadingHeaders loading={loading}>
-            {data.deaths} {fatalityRate}%
-          </LoadingHeaders> */}
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.deaths}</LoadingHeaders>
           <LoadingParas loading={loading} className='red'>
@@ -92,6 +68,7 @@ const TotalCases = ({ data, flag, fatalityRate, recoveryRate }) => {
 const Card = styled.div`
   h2 {
     font-size: 1.4rem;
+    text-align: center;
     margin: 0.5rem 0;
     span {
       margin: 0;
@@ -100,11 +77,17 @@ const Card = styled.div`
     }
   }
 
+  .alert {
+    display: block;
+    background: red;
+    height: 2rem;
+  }
+
   .img-flag {
     width: 2.2rem;
     margin: auto 0.4rem;
   }
-  div {
+  #card-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
@@ -176,7 +159,6 @@ const Card = styled.div`
 
   @media (max-width: 420px) {
     h2 {
-      text-align: center;
       font-size: 1.1rem;
     }
     div {

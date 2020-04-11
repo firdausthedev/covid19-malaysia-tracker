@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import { Link } from 'react-router-dom';
-// import PerfectScrollbar from 'react-perfect-scrollbar';
-const HistoryCases = () => {
-  const [history, newHistory] = useState([]);
 
-  useEffect(() => {
-    getTotalHistoryCases();
-  }, []);
-
-  const getTotalHistoryCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
-    const history2 = res.data.location.timelines.confirmed.timeline;
-    // console.log(history2);
-
-    newHistory(Object.entries(history2));
-  };
-
+const HistoryCases = ({ history }) => {
   const getDate = (dateData) => {
     const date = new Date(dateData);
     return date.toUTCString();
@@ -33,8 +18,6 @@ const HistoryCases = () => {
         return '';
       } else return `+${singleHistory[1] - prevHustoryArray[1]}`;
     }
-
-    //return b;
   };
 
   return (

@@ -3,6 +3,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ZingChart from 'zingchart-react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Graph = () => {
   const [totalConfirmedHistory, setTotalConfirmedHistory] = useState([]);
   const [totalNewCasesHistory, setTotalNewCasesHistory] = useState([]);
@@ -20,7 +23,6 @@ const Graph = () => {
       if (singleHistory[1] - prevHistroyArray[1] === 0) {
         return 0;
       } else {
-        // console.log(prevHistroyArray[1]);
         return singleHistory[1] - prevHistroyArray[1];
       }
     }
@@ -29,31 +31,36 @@ const Graph = () => {
   };
 
   const getTotalHistoryCases = async () => {
-    const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
-    const history2 = Object.entries(res.data.location.timelines.confirmed.timeline);
-    const array = history2.map((h) => h[1]);
-    const arrayDiff = history2.map((h, index) => getDiff(h, history2[index - 1], index));
-    setTotalNewCasesHistory(arrayDiff);
-    setTotalConfirmedHistory(array);
-    setConfig({
-      type: 'line',
-      series: [
-        {
-          values: array,
-        },
-      ],
-    });
-    setDiffConfig({
-      type: 'bar',
-      series: [
-        {
-          values: arrayDiff,
-        },
-      ],
-    });
+    try {
+      const res = await axios.get('https://coronavirus-tracker-api.herokuapp.com/v2/locations/153');
+      const history2 = Object.entries(res.data.location.timelines.confirmed.timeline);
+      const array = history2.map((h) => h[1]);
+      const arrayDiff = history2.map((h, index) => getDiff(h, history2[index - 1], index));
+      setTotalNewCasesHistory(arrayDiff);
+      setTotalConfirmedHistory(array);
+      setConfig({
+        type: 'line',
+        series: [
+          {
+            values: array,
+          },
+        ],
+      });
+      setDiffConfig({
+        type: 'bar',
+        series: [
+          {
+            values: arrayDiff,
+          },
+        ],
+      });
+    } catch (error) {
+      toast.error('Server Error. Please come back later..');
+    }
   };
   return (
     <GraphDiv>
+      <ToastContainer autoClose={false} />
       <div id='title'>
         <div>
           <Link to='/'>Back</Link>
