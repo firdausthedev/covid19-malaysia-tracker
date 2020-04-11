@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
-const TotalCases = ({ data, flag, fatalityRate, recoveryRate, newCase, loading }) => {
+const TotalCases = ({ data, flag, newCase, loading }) => {
   const getPreviousCase = (numOfArray) => {
     let todayCase = newCase[numOfArray - 1];
     let yesterdayCase = newCase[numOfArray - 2];
@@ -11,6 +11,8 @@ const TotalCases = ({ data, flag, fatalityRate, recoveryRate, newCase, loading }
     const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
     return !loading ? total : '';
   };
+  const fatalityRate = ((data.deaths / data.cases) * 100).toFixed(2);
+  const recoveryRate = ((data.recovered / data.cases) * 100).toFixed(2);
 
   return (
     <Card>
