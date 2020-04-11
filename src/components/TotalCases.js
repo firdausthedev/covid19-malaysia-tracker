@@ -146,6 +146,7 @@ const Card = styled.div`
         grid-template-columns: repeat(1, 1fr);
       }
       .card {
+        height: 8rem;
         h2 {
           font-size: 2rem;
           margin: 0rem 0;

@@ -10,18 +10,18 @@ const HistoryCases = ({ history }) => {
     return date.toUTCString();
   };
 
-  const getDiff = (singleHistory, prevHustoryArray, index) => {
+  const getDiff = (singleHistory, prevHistoryArray, index) => {
     if (index === 0) {
       return '';
     } else {
-      if (singleHistory[1] - prevHustoryArray[1] === 0) {
+      if (singleHistory[1] - prevHistoryArray[1] === 0) {
         return '';
-      } else return `+${singleHistory[1] - prevHustoryArray[1]}`;
+      } else return `+${singleHistory[1] - prevHistoryArray[1]}`;
     }
   };
 
   return (
-    <NewCaseStyle>
+    <HistoryStyle>
       <h2>History : Confirmed Cases</h2>
       <div id='graph-btn-container'>
         <Link to='/graph'>Graphs</Link>
@@ -38,11 +38,11 @@ const HistoryCases = ({ history }) => {
             .reverse()}
         </Scrollbars>
       </div>
-    </NewCaseStyle>
+    </HistoryStyle>
   );
 };
 
-const NewCaseStyle = styled.div`
+const HistoryStyle = styled.div`
   margin-top: 1.2rem;
   border-radius: 10px;
   box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);

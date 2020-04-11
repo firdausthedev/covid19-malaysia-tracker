@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ZingChart from 'zingchart-react';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Graph = ({ dataGraph }) => {
   const [totalConfirmedHistory, setTotalConfirmedHistory] = useState([]);
@@ -14,24 +13,21 @@ const Graph = ({ dataGraph }) => {
     getTotalHistoryCases(dataGraph);
   }, []);
 
-  const getDiff = (singleHistory, prevHistroyArray, index) => {
+  const getDiff = (singleHistory, prevHistoryArray, index) => {
     if (index === 0) {
       return 0;
     } else {
-      if (singleHistory[1] - prevHistroyArray[1] === 0) {
+      if (singleHistory[1] - prevHistoryArray[1] === 0) {
         return 0;
       } else {
-        return singleHistory[1] - prevHistroyArray[1];
+        return singleHistory[1] - prevHistoryArray[1];
       }
     }
-
-    //return b;
   };
 
   const getTotalHistoryCases = (timeline) => {
-    const history2 = Object.entries(timeline);
-    const array = history2.map((h) => h[1]);
-    const arrayDiff = history2.map((h, index) => getDiff(h, history2[index - 1], index));
+    const array = timeline.map((h) => h[1]);
+    const arrayDiff = timeline.map((h, index) => getDiff(h, timeline[index - 1], index));
     setTotalNewCasesHistory(arrayDiff);
     setTotalConfirmedHistory(array);
     setConfig({

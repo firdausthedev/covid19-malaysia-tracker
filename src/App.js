@@ -12,9 +12,8 @@ function App() {
   const [data, setData] = useState({});
   const [flag, setFlag] = useState('');
   const [loading, isLoading] = useState(true);
-  const [newCase, setNewCase] = useState([]); //new case from history
+  const [timeline, setTimeline] = useState([]); //new case from history
   const [history, newHistory] = useState([]); //confirmed history
-  const [dataGraph, setDataGraph] = useState({});
 
   useEffect(() => {
     setCases();
@@ -30,10 +29,9 @@ function App() {
       const resApi2 = await axios.get(
         'https://coronavirus-tracker-api.herokuapp.com/v2/locations/153'
       );
-      const timeline = resApi2.data.location.timelines.confirmed.timeline;
-      newHistory(Object.entries(timeline));
-      setNewCase(Object.entries(timeline));
-      setDataGraph(timeline);
+      const timelineAPI = resApi2.data.location.timelines.confirmed.timeline;
+      newHistory(Object.entries(timelineAPI));
+      setTimeline(Object.entries(timelineAPI));
       isLoading(false);
     } catch (error) {
       console.log(error);
@@ -56,7 +54,7 @@ function App() {
                   data={data}
                   flag={flag}
                   loading={loading}
-                  newCase={newCase}
+                  newCase={timeline}
                   history={history}
                 />
               )}
@@ -64,7 +62,7 @@ function App() {
             <Route
               exact
               path='/graph'
-              render={(props) => <Graph {...props} dataGraph={dataGraph} />}
+              render={(props) => <Graph {...props} dataGraph={timeline} />}
             />
             <Route
               render={(props) => (
@@ -73,7 +71,7 @@ function App() {
                   data={data}
                   flag={flag}
                   loading={loading}
-                  newCase={newCase}
+                  newCase={timeline}
                   history={history}
                 />
               )}
