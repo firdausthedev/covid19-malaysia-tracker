@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
-import 'react-perfect-scrollbar/dist/css/styles.css';
 import { Link } from 'react-router-dom';
 
-const HistoryCases = ({ history }) => {
+const HistoryCases = ({ history, loading }) => {
   const getDate = (dateData) => {
     const date = new Date(dateData);
     return date.toUTCString();
@@ -27,16 +26,18 @@ const HistoryCases = ({ history }) => {
         <Link to='/graph'>Graphs</Link>
       </div>
       <div>
-        <Scrollbars style={{ height: 300 }} autoHide>
-          {history
-            .map((h, index) => (
-              <li key={h[0]}>
-                {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
-                <span>{getDiff(h, history[index - 1], index)}</span>
-              </li>
-            ))
-            .reverse()}
-        </Scrollbars>
+        {!loading && (
+          <Scrollbars style={{ height: 300 }} autoHide>
+            {history
+              .map((h, index) => (
+                <li key={h[0]}>
+                  {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
+                  <span>{getDiff(h, history[index - 1], index)}</span>
+                </li>
+              ))
+              .reverse()}
+          </Scrollbars>
+        )}
       </div>
     </HistoryStyle>
   );

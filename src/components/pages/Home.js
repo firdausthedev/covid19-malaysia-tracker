@@ -15,7 +15,7 @@ const Home = (props) => {
           loading={props.loading}
         />
       </div>
-      <HistoryCases history={props.history} />
+      <HistoryCases history={props.history} loading={props.loading} />
     </Fragment>
   );
 };

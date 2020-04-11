@@ -13,7 +13,7 @@ function App() {
   const [data, setData] = useState({});
   const [flag, setFlag] = useState('');
   const [loading, isLoading] = useState(true);
-  const [timeline, setTimeline] = useState([]); //new case from history
+  const [timeline, setTimeline] = useState([]);
 
   useEffect(() => {
     setCases();

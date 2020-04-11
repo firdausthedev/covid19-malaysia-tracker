@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
 const TotalCases = ({ data, flag, history, loading }) => {
-  const getPreviousCase = (numOfArray) => {
-    let todayCase = history[numOfArray - 1];
-    let yesterdayCase = history[numOfArray - 2];
+  const getPreviousCase = (historyLength) => {
+    let todayCase = history[historyLength - 1];
+    let yesterdayCase = history[historyLength - 2];
     let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
     let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
     const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
@@ -17,10 +17,12 @@ const TotalCases = ({ data, flag, history, loading }) => {
   return (
     <Card>
       <h2>
-        {data.country}
-        <span>
-          <img src={flag} alt={data.country} className='img-flag' />
-        </span>
+        {!loading && data.country}
+        {!loading && (
+          <span>
+            <img src={flag} alt={data.country} className='img-flag' />
+          </span>
+        )}
       </h2>
 
       <div id='card-container'>
@@ -72,22 +74,10 @@ const Card = styled.div`
     font-size: 1.4rem;
     text-align: center;
     margin: 0.5rem 0;
-    span {
-      margin: 0;
-      padding: 0;
-      /* background: black; */
+    span img {
+      width: 2.2rem;
+      margin: auto 0.4rem;
     }
-  }
-
-  .alert {
-    display: block;
-    background: red;
-    height: 2rem;
-  }
-
-  .img-flag {
-    width: 2.2rem;
-    margin: auto 0.4rem;
   }
   #card-container {
     display: grid;
@@ -100,17 +90,16 @@ const Card = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      text-align: center;
       border-radius: 6px;
       box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
       h2 {
         color: black;
-        text-align: center;
         font-size: 2.2rem;
         margin: 0rem 0;
       }
       p {
         font-size: 1.2rem;
-        text-align: center;
         color: #333;
       }
       .green {
@@ -118,19 +107,6 @@ const Card = styled.div`
       }
       .red {
         color: #f73859;
-      }
-    }
-    .two-infos {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      .two-infos-items {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        h2 {
-          font-size: 2rem;
-        }
       }
     }
   }
