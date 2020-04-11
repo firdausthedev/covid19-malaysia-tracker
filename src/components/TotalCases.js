@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
-const TotalCases = ({ data, flag, newCase, loading }) => {
+const TotalCases = ({ data, flag, history, loading }) => {
   const getPreviousCase = (numOfArray) => {
-    let todayCase = newCase[numOfArray - 1];
-    let yesterdayCase = newCase[numOfArray - 2];
+    let todayCase = history[numOfArray - 1];
+    let yesterdayCase = history[numOfArray - 2];
     let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
     let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
     const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
@@ -30,7 +30,7 @@ const TotalCases = ({ data, flag, newCase, loading }) => {
         </div>
         <div className='card'>
           <LoadingHeaders loading={loading}>
-            {data.todayCases === 0 ? getPreviousCase(parseInt(newCase.length)) : data.todayCases}
+            {data.todayCases === 0 ? getPreviousCase(parseInt(history.length)) : data.todayCases}
           </LoadingHeaders>
           <LoadingParas loading={loading}>New Cases</LoadingParas>
         </div>

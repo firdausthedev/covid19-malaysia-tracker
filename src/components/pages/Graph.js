@@ -11,6 +11,7 @@ const Graph = ({ dataGraph }) => {
 
   useEffect(() => {
     getTotalHistoryCases(dataGraph);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getDiff = (singleHistory, prevHistoryArray, index) => {

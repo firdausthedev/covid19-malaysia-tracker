@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { HashRouter, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import './App.css';
@@ -13,7 +14,6 @@ function App() {
   const [flag, setFlag] = useState('');
   const [loading, isLoading] = useState(true);
   const [timeline, setTimeline] = useState([]); //new case from history
-  const [history, newHistory] = useState([]); //confirmed history
 
   useEffect(() => {
     setCases();
@@ -30,7 +30,6 @@ function App() {
         'https://coronavirus-tracker-api.herokuapp.com/v2/locations/153'
       );
       const timelineAPI = resApi2.data.location.timelines.confirmed.timeline;
-      newHistory(Object.entries(timelineAPI));
       setTimeline(Object.entries(timelineAPI));
       isLoading(false);
     } catch (error) {
@@ -49,14 +48,7 @@ function App() {
               exact
               path='/'
               render={(props) => (
-                <Home
-                  {...props}
-                  data={data}
-                  flag={flag}
-                  loading={loading}
-                  newCase={timeline}
-                  history={history}
-                />
+                <Home {...props} data={data} flag={flag} loading={loading} history={timeline} />
               )}
             />
             <Route
@@ -66,14 +58,7 @@ function App() {
             />
             <Route
               render={(props) => (
-                <Home
-                  {...props}
-                  data={data}
-                  flag={flag}
-                  loading={loading}
-                  newCase={timeline}
-                  history={history}
-                />
+                <Home {...props} data={data} flag={flag} loading={loading} history={timeline} />
               )}
             />
           </Switch>

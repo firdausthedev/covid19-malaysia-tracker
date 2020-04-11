@@ -11,7 +11,7 @@ const Home = (props) => {
         <TotalCases
           data={props.data}
           flag={props.flag}
-          newCase={props.newCase}
+          history={props.history}
           loading={props.loading}
         />
       </div>
