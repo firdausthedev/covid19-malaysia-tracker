@@ -42,7 +42,7 @@ const TotalCases = ({ data, flag, history, loading }) => {
         </div>
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.recovered}</LoadingHeaders>
-          <LoadingParas loading={loading} className='green'>
+          <LoadingParas loading={loading} className='text-green'>
             Recovered
           </LoadingParas>
         </div>
@@ -52,7 +52,7 @@ const TotalCases = ({ data, flag, history, loading }) => {
         </div>
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.deaths}</LoadingHeaders>
-          <LoadingParas loading={loading} className='red'>
+          <LoadingParas loading={loading} className='text-red'>
             Total Deaths
           </LoadingParas>
         </div>
@@ -102,10 +102,10 @@ const Card = styled.div`
         font-size: 1.2rem;
         color: #333;
       }
-      .green {
+      .text-green {
         color: #639a67;
       }
-      .red {
+      .text-red {
         color: #f73859;
       }
     }

@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import ZingChart from 'zingchart-react';
+import CustomeBtn from './../CustomBtn';
 
-const Graph = ({ dataGraph }) => {
+const Graph = ({ dataGraph, historyDeaths }) => {
   const [totalConfirmedHistory, setTotalConfirmedHistory] = useState([]);
   const [totalNewCasesHistory, setTotalNewCasesHistory] = useState([]);
-  const [config, setConfig] = useState({});
-  const [diffConfig, setDiffConfig] = useState({});
+  const [totalDeathsHistory, setTotalDeathsHistory] = useState([]);
+  const [confirmedConfig, setConfirmedConfig] = useState({});
+  const [diffConfirmedConfig, setDiffConfiremedConfig] = useState({});
+  const [configDeaths, setConfigDeaths] = useState({});
 
   useEffect(() => {
-    getTotalHistoryCases(dataGraph);
+    getTotalHistoryCases(dataGraph, historyDeaths);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -26,12 +28,14 @@ const Graph = ({ dataGraph }) => {
     }
   };
 
-  const getTotalHistoryCases = (timeline) => {
+  const getTotalHistoryCases = (timeline, deathTimeLine) => {
     const array = timeline.map((h) => h[1]);
     const arrayDiff = timeline.map((h, index) => getDiff(h, timeline[index - 1], index));
+    const arrayDeaths = deathTimeLine.map((h) => h[1]);
     setTotalNewCasesHistory(arrayDiff);
     setTotalConfirmedHistory(array);
-    setConfig({
+    setTotalDeathsHistory(arrayDeaths);
+    setConfirmedConfig({
       type: 'line',
       series: [
         {
@@ -39,11 +43,19 @@ const Graph = ({ dataGraph }) => {
         },
       ],
     });
-    setDiffConfig({
+    setDiffConfiremedConfig({
       type: 'bar',
       series: [
         {
           values: arrayDiff,
+        },
+      ],
+    });
+    setConfigDeaths({
+      type: 'bar',
+      series: [
+        {
+          values: arrayDeaths,
         },
       ],
     });
@@ -52,14 +64,16 @@ const Graph = ({ dataGraph }) => {
     <GraphDiv>
       <div id='title'>
         <div>
-          <Link to='/'>Back</Link>
+          <CustomeBtn to='/'>Back</CustomeBtn>
         </div>
         <h2>Total Confirmed Cases by Day</h2>
         <div></div>
       </div>
-      {totalConfirmedHistory.length > 0 ? <ZingChart data={config} /> : ''}
+      {totalConfirmedHistory.length > 0 ? <ZingChart data={confirmedConfig} /> : ''}
       <h2 id='last-h2'>Total New Cases by Day</h2>
-      {totalNewCasesHistory.length > 0 ? <ZingChart data={diffConfig} /> : ''}
+      {totalNewCasesHistory.length > 0 ? <ZingChart data={diffConfirmedConfig} /> : ''}
+      <h2 id='last-h2'>Total Deaths by Day</h2>
+      {totalDeathsHistory.length > 0 ? <ZingChart data={configDeaths} /> : ''}
     </GraphDiv>
   );
 };
@@ -74,18 +88,6 @@ const GraphDiv = styled.div`
     div {
       display: inline-block;
       margin: auto 0;
-      a {
-        text-align: center;
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-        font-size: 1.2rem;
-        font-weight: bold;
-        border-radius: 10px;
-        padding: 0.4rem 2rem;
-        background: #f4e04d;
-        box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
-      }
     }
     h2 {
       text-align: center;

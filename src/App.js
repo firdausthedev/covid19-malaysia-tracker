@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { HashRouter, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import './App.css';
-import Navbar from './components/layout/Nabvar';
+import Navbar from './components/layout/Navbar';
 import Graph from './components/pages/Graph';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,6 +14,7 @@ function App() {
   const [flag, setFlag] = useState('');
   const [loading, isLoading] = useState(true);
   const [timeline, setTimeline] = useState([]);
+  const [timelineDeaths, setTimelineDeaths] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [countryName, setCountryName] = useState('MY');
 
@@ -32,13 +33,16 @@ function App() {
             '&timelines=true'
         ),
       ]);
-
+      // API https://corona.lmao.ninja/'
       const flagSrc = resAPI1.data.countryInfo.flag;
       setFlag(flagSrc);
       setData(resAPI1.data);
-      const timelineAPI = resAPI2.data.locations[0].timelines.confirmed.timeline;
-      setTimeline(Object.entries(timelineAPI));
 
+      // API https://coronavirus-tracker-api.herokuapp.com/v2/locations
+      const timelineAPI = resAPI2.data.locations[0].timelines.confirmed.timeline;
+      const timelineDeathsAPI = resAPI2.data.locations[0].timelines.deaths.timeline;
+      setTimeline(Object.entries(timelineAPI));
+      setTimelineDeaths(Object.entries(timelineDeathsAPI));
       isLoading(false);
     } catch (error) {
       console.log(error);
@@ -62,7 +66,9 @@ function App() {
             <Route
               exact
               path='/graph'
-              render={(props) => <Graph {...props} dataGraph={timeline} />}
+              render={(props) => (
+                <Graph {...props} dataGraph={timeline} historyDeaths={timelineDeaths} />
+              )}
             />
             <Route
               render={(props) => (

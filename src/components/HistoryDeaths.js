@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
 import CustomBtn from './CustomBtn';
-const HistoryCases = ({ history, loading }) => {
+const HistoryDeaths = ({ history, loading }) => {
   const getDate = (dateData) => {
     const date = new Date(dateData);
     return date.toUTCString();
@@ -20,7 +20,7 @@ const HistoryCases = ({ history, loading }) => {
 
   return (
     <HistoryStyle>
-      <h2>Timeline : Confirmed Cases</h2>
+      <h2>Timeline : Deaths</h2>
       <div id='graph-btn-container'>
         <CustomBtn to='/graph'>Graphs</CustomBtn>
       </div>
@@ -88,4 +88,4 @@ const HistoryStyle = styled.div`
   }
 `;
 
-export default HistoryCases;
+export default HistoryDeaths;

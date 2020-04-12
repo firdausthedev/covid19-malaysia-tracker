@@ -52,6 +52,7 @@ const Nav = styled.nav`
   margin-bottom: 1.5rem;
 
   ul {
+    list-style: none;
     display: flex;
   }
 
@@ -61,6 +62,7 @@ const Nav = styled.nav`
     padding: 0.5rem 1rem;
     border-radius: 10px;
     margin: 0 0.25rem;
+    text-decoration: none;
 
     &:hover {
       background: #fff;
