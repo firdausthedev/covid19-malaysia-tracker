@@ -1,5 +1,5 @@
 import React from 'react';
-const LoadingParas = (props) => {
+export const LoadingParas = (props) => {
   return (
     <p
       className={props.className}
@@ -29,5 +29,3 @@ export const LoadingHeaders = (props) => {
     </h2>
   );
 };
-
-export default LoadingParas;

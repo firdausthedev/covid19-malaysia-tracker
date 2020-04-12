@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import LoadingParas, { LoadingHeaders } from './loadingUtils';
+import { LoadingParas, LoadingHeaders } from './loadingUtils';
 
 const TotalCases = ({ data, flag, history, loading }) => {
   const getPreviousCase = (historyLength) => {
     if (!loading) {
-      let todayCase = Object.values(history[historyLength - 1]);
-      let yesterdayCase = Object.values(history[historyLength - 2]);
+      const todayCase = Object.values(history[historyLength - 1]);
+      const yesterdayCase = Object.values(history[historyLength - 2]);
       const total = todayCase[1] - yesterdayCase[1];
       return total;
     }
