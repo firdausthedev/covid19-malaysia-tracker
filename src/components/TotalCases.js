@@ -4,19 +4,19 @@ import LoadingParas, { LoadingHeaders } from './loadingUtils';
 
 const TotalCases = ({ data, flag, history, loading }) => {
   const getPreviousCase = (historyLength) => {
-    let todayCase = history[historyLength - 1];
-    let yesterdayCase = history[historyLength - 2];
-    let todayCaseConverted = todayCase != null ? Object.values(todayCase) : {};
-    let yesterdayCaseConverted = yesterdayCase != null ? Object.values(yesterdayCase) : {};
-    const total = parseInt(todayCaseConverted[1]) - parseInt(yesterdayCaseConverted[1]);
-    return !loading ? total : '';
+    if (!loading) {
+      let todayCase = Object.values(history[historyLength - 1]);
+      let yesterdayCase = Object.values(history[historyLength - 2]);
+      const total = todayCase[1] - yesterdayCase[1];
+      return total;
+    }
   };
   const fatalityRate = ((data.deaths / data.cases) * 100).toFixed(2);
   const recoveryRate = ((data.recovered / data.cases) * 100).toFixed(2);
 
   return (
     <Card>
-      <h2>
+      <h2 id='country-name'>
         {!loading && data.country}
         {!loading && (
           <span>
@@ -32,7 +32,7 @@ const TotalCases = ({ data, flag, history, loading }) => {
         </div>
         <div className='card'>
           <LoadingHeaders loading={loading}>
-            {data.todayCases === 0 ? getPreviousCase(parseInt(history.length)) : data.todayCases}
+            {data.todayCases === 0 ? getPreviousCase(history.length) : data.todayCases}
           </LoadingHeaders>
           <LoadingParas loading={loading}>New Cases</LoadingParas>
         </div>
@@ -70,7 +70,7 @@ const TotalCases = ({ data, flag, history, loading }) => {
 };
 
 const Card = styled.div`
-  h2 {
+  #country-name {
     font-size: 1.4rem;
     text-align: center;
     margin: 0.5rem 0;
@@ -118,9 +118,7 @@ const Card = styled.div`
   @media (max-width: 588px) {
     #card-container {
       grid-template-columns: repeat(2, 1fr);
-      two-infos {
-        grid-template-columns: repeat(1, 1fr);
-      }
+
       .card {
         height: 8rem;
         h2 {
@@ -129,7 +127,6 @@ const Card = styled.div`
         }
         p {
           font-size: 1rem;
-          text-align: center;
           color: #333;
         }
       }
@@ -137,16 +134,14 @@ const Card = styled.div`
   }
 
   @media (max-width: 420px) {
-    h2 {
+    #country-name {
       font-size: 1.1rem;
     }
     #card-container {
-      grid-template-columns: repeat(2, 1fr);
       .card {
         height: 5rem;
         h2 {
           font-size: 1.3rem;
-          margin: 0rem 0;
         }
       }
     }

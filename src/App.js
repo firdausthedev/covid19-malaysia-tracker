@@ -14,23 +14,31 @@ function App() {
   const [flag, setFlag] = useState('');
   const [loading, isLoading] = useState(true);
   const [timeline, setTimeline] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [countryName, setCountryName] = useState('MY');
 
   useEffect(() => {
     setCases();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const setCases = async () => {
     try {
-      const res = await axios.get('https://corona.lmao.ninja/countries/458');
-      const flagSrc = res.data.countryInfo.flag;
-      setFlag(flagSrc);
-      setData(res.data);
+      const [resAPI1, resAPI2] = await Promise.all([
+        axios.get('https://corona.lmao.ninja/countries/' + countryName),
+        axios.get(
+          'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=' +
+            countryName +
+            '&timelines=true'
+        ),
+      ]);
 
-      const resApi2 = await axios.get(
-        'https://coronavirus-tracker-api.herokuapp.com/v2/locations/153'
-      );
-      const timelineAPI = resApi2.data.location.timelines.confirmed.timeline;
+      const flagSrc = resAPI1.data.countryInfo.flag;
+      setFlag(flagSrc);
+      setData(resAPI1.data);
+      const timelineAPI = resAPI2.data.locations[0].timelines.confirmed.timeline;
       setTimeline(Object.entries(timelineAPI));
+
       isLoading(false);
     } catch (error) {
       console.log(error);
