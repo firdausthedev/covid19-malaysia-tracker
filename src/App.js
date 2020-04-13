@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { HashRouter, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
-import './App.css';
+import './App.scss';
 import Navbar from './components/layout/Navbar';
 import Graph from './components/pages/Graph';
 import axios from 'axios';
@@ -18,13 +18,22 @@ function App() {
   const [showDeathsTimeline, setShowDeathsTimeline] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [countryName, setCountryName] = useState('MY'); // change country here
-  const [nightMode, setNightMode] = useState(true);
+
+  const getDarkModeStore = () => {
+    const isMode = JSON.parse(localStorage.getItem('dark'));
+    return isMode || false;
+  };
+  const [darkMode, setDarkMode] = useState(getDarkModeStore());
 
   useEffect(() => {
     setCases();
+    setDarkModeStore();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [darkMode]);
 
+  const setDarkModeStore = () => {
+    localStorage.setItem('dark', JSON.stringify(darkMode));
+  };
   const setCases = async () => {
     try {
       const [resAPI1, resAPI2] = await Promise.all([
@@ -56,14 +65,13 @@ function App() {
     setShowDeathsTimeline(!isSelected);
   };
 
-  const setNightModeFunc = (isSelected) => {
-    setNightMode(!isSelected);
-    console.log(isSelected);
+  const setDarkModeFunc = (isSelected) => {
+    setDarkMode(!isSelected);
   };
 
   return (
     <HashRouter basename='/'>
-      <div className='App'>
+      <div className={darkMode ? 'app dark-mode' : 'app light-mode'}>
         <Navbar />
         <div className='container'>
           <ToastContainer autoClose={false} />
@@ -81,8 +89,8 @@ function App() {
                   historyDeaths={timelineDeaths}
                   showDeathsTimeline={showDeathsTimeline}
                   setDeathTimeline={setDeathTimeline}
-                  nightModeFunc={setNightModeFunc}
-                  nightMode={nightMode}
+                  darkModeFunc={setDarkModeFunc}
+                  darkMode={darkMode}
                 />
               )}
             />
@@ -104,6 +112,8 @@ function App() {
                   historyDeaths={timelineDeaths}
                   showDeathsTimeline={showDeathsTimeline}
                   setDeathTimeline={setDeathTimeline}
+                  darkModeFunc={setDarkModeFunc}
+                  darkMode={darkMode}
                 />
               )}
             />
@@ -113,10 +123,5 @@ function App() {
     </HashRouter>
   );
 }
-
-// const nightModeStyle = {
-//   background: 'black',
-//   // color: 'white',
-// };
 
 export default App;

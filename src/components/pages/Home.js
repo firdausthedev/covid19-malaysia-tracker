@@ -14,16 +14,14 @@ const Home = ({
   historyDeaths,
   showDeathsTimeline,
   setDeathTimeline,
-  nightMode,
-  nightModeFunc,
+  darkMode,
+  darkModeFunc,
 }) => {
   return (
-    <Fragment>
-      <TodayDate nightMode={nightMode} nightModeFunc={nightModeFunc} />
-      <div>
-        <TotalCases data={data} flag={flag} history={history} loading={loading} />
-      </div>
-      <BtnContainer>
+    <div id='total-cases'>
+      <TodayDate darkMode={darkMode} darkModeFunc={darkModeFunc} />
+      <TotalCases data={data} flag={flag} history={history} loading={loading} />
+      <BtnContainer id='btn-container'>
         <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)}>
           {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <i className='fas fa-sync-alt' />
         </CustomBtn>
@@ -33,7 +31,7 @@ const Home = ({
       </BtnContainer>
       {!showDeathsTimeline && <HistoryCases history={history} loading={loading} />}
       {showDeathsTimeline && <HistoryDeaths history={historyDeaths} loading={loading} />}
-    </Fragment>
+    </div>
   );
 };
 

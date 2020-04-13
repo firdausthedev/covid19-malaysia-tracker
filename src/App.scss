@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  background-color: #eeeef3;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+.text-green {
+  color: #639a67 !important;
+}
+.text-red {
+  color: #f73859 !important;
+}
+
+.dark-mode {
+  background: #000000;
+  transition: 1.5s;
+
+  #navbar {
+    background: #323232;
+
+    .title-wrapper {
+      background-color: black;
+      color: #eeeeee;
+    }
+  }
+
+  #today-date {
+    background: #323232;
+    color: #eeeeee;
+    box-shadow: none;
+
+    h2 {
+      color: #eeeeee;
+    }
+  }
+
+  #total-cases {
+    #country-name {
+      color: #eeeeee;
+    }
+    #card-container .card {
+      background: #323232;
+      box-shadow: none;
+      h2 {
+        color: white;
+      }
+      p {
+        color: #eeeeee;
+      }
+    }
+  }
+
+  #btn-container {
+    a {
+      box-shadow: none;
+    }
+    a:first-child {
+      background: #323232;
+      color: #eeeeee;
+    }
+  }
+
+  #timeline {
+    box-shadow: none;
+    h2 {
+      background: #323232;
+      color: #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+    }
+    div {
+      background: #323232;
+      color: #eeeeee;
+    }
+  }
+
+  #graph {
+    color: #eeeeee;
+    #title div a {
+      box-shadow: none;
+    }
+  }
+}

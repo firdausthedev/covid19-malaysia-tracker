@@ -18,22 +18,20 @@ const HistoryCases = ({ history, loading }) => {
   };
 
   return (
-    <HistoryStyle>
+    <HistoryStyle id='timeline'>
       <h2>Timeline : Confirmed Cases</h2>
 
       <div>
-        {!loading && (
-          <Scrollbars style={{ height: 300 }} autoHide>
-            {history
-              .map((h, index) => (
-                <li key={h[0]}>
-                  {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
-                  <span>{getDiff(h, history[index - 1], index)}</span>
-                </li>
-              ))
-              .reverse()}
-          </Scrollbars>
-        )}
+        <Scrollbars style={{ height: 300 }} autoHide>
+          {history
+            .map((h, index) => (
+              <li key={h[0]}>
+                {getDate(h[0]).substr(5, 12)} : <strong>{h[1]}</strong>
+                <span>{getDiff(h, history[index - 1], index)}</span>
+              </li>
+            ))
+            .reverse()}
+        </Scrollbars>
       </div>
     </HistoryStyle>
   );

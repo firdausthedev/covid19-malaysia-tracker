@@ -102,12 +102,6 @@ const Card = styled.div`
         font-size: 1.2rem;
         color: #333;
       }
-      .text-green {
-        color: #639a67;
-      }
-      .text-red {
-        color: #f73859;
-      }
     }
   }
   @media (max-width: 680px) {

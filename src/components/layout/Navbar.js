@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Navbar = ({ icon, title }) => {
   return (
-    <NavContainer>
+    <NavContainer id='navbar'>
       <Nav>
         <div className='title-wrapper'>
           <h2>
@@ -57,7 +57,7 @@ const Nav = styled.nav`
   }
 
   a {
-    color: #fff;
+    color: #eeeeee;
     background: #1e2022;
     padding: 0.5rem 1rem;
     border-radius: 10px;

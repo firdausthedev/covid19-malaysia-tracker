@@ -73,7 +73,7 @@ const Graph = ({ dataGraph, historyDeaths }) => {
     });
   };
   return (
-    <GraphDiv>
+    <GraphDiv id='graph'>
       <div id='title'>
         <div>
           <CustomeBtn to='/'>Back</CustomeBtn>
