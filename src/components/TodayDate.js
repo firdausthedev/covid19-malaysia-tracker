@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TodayDate = () => {
+const TodayDate = ({ nightModeFunc, nightMode }) => {
   const today = new Date();
   const month = today.getMonth();
   let monthString = '';
@@ -53,6 +53,9 @@ const TodayDate = () => {
   return (
     <DayTitleContainer>
       <DayTitle>{`${today.getDate()}${dateTh} ${monthString} ${today.getFullYear()}`}</DayTitle>
+      {/* <span onClick={() => nightModeFunc(nightMode)}>
+        {nightMode ? <i class='fas fa-moon' /> : <i class='fas fa-sun' />}
+      </span> */}
     </DayTitleContainer>
   );
 };
@@ -64,6 +67,16 @@ const DayTitleContainer = styled.div`
   margin: auto;
   background: white;
   box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
+  position: relative;
+  span {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    margin-top: 3px;
+    margin-right: 0.7rem;
+    text-align: right;
+    font-size: 1.4rem;
+  }
 `;
 
 const DayTitle = styled.h2`

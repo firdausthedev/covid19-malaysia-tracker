@@ -1,35 +1,38 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import TodayDate from './../TodayDate';
 import TotalCases from './../TotalCases';
 import HistoryCases from '../HistoryCases';
 import HistoryDeaths from '../HistoryDeaths';
 import CustomBtn from './../CustomBtn';
 import styled from 'styled-components';
-const Home = (props) => {
-  const [showDeathsTimeline, setShowDeathsTimeline] = useState(false);
+
+const Home = ({
+  data,
+  flag,
+  history,
+  loading,
+  historyDeaths,
+  showDeathsTimeline,
+  setDeathTimeline,
+  nightMode,
+  nightModeFunc,
+}) => {
   return (
     <Fragment>
-      <TodayDate />
+      <TodayDate nightMode={nightMode} nightModeFunc={nightModeFunc} />
       <div>
-        <TotalCases
-          data={props.data}
-          flag={props.flag}
-          history={props.history}
-          loading={props.loading}
-        />
+        <TotalCases data={data} flag={flag} history={history} loading={loading} />
       </div>
       <BtnContainer>
-        <CustomBtn onClick={() => setShowDeathsTimeline(!showDeathsTimeline)}>
-          {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <i class='fas fa-sync-alt' />
+        <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)}>
+          {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <i className='fas fa-sync-alt' />
         </CustomBtn>
         <CustomBtn to='/graph'>
-          Graphs <i class='fas fa-arrow-right' />
+          Graphs <i className='fas fa-arrow-right' />
         </CustomBtn>
       </BtnContainer>
-      {!showDeathsTimeline && <HistoryCases history={props.history} loading={props.loading} />}
-      {showDeathsTimeline && (
-        <HistoryDeaths history={props.historyDeaths} loading={props.loading} />
-      )}
+      {!showDeathsTimeline && <HistoryCases history={history} loading={loading} />}
+      {showDeathsTimeline && <HistoryDeaths history={historyDeaths} loading={loading} />}
     </Fragment>
   );
 };

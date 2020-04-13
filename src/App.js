@@ -15,8 +15,10 @@ function App() {
   const [loading, isLoading] = useState(true);
   const [timeline, setTimeline] = useState([]);
   const [timelineDeaths, setTimelineDeaths] = useState([]);
+  const [showDeathsTimeline, setShowDeathsTimeline] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [countryName, setCountryName] = useState('MY'); // change country here
+  const [nightMode, setNightMode] = useState(true);
 
   useEffect(() => {
     setCases();
@@ -49,6 +51,16 @@ function App() {
       toast.error('Server Error. Please come back later..');
     }
   };
+
+  const setDeathTimeline = (isSelected) => {
+    setShowDeathsTimeline(!isSelected);
+  };
+
+  const setNightModeFunc = (isSelected) => {
+    setNightMode(!isSelected);
+    console.log(isSelected);
+  };
+
   return (
     <HashRouter basename='/'>
       <div className='App'>
@@ -67,6 +79,10 @@ function App() {
                   loading={loading}
                   history={timeline}
                   historyDeaths={timelineDeaths}
+                  showDeathsTimeline={showDeathsTimeline}
+                  setDeathTimeline={setDeathTimeline}
+                  nightModeFunc={setNightModeFunc}
+                  nightMode={nightMode}
                 />
               )}
             />
@@ -86,6 +102,8 @@ function App() {
                   loading={loading}
                   history={timeline}
                   historyDeaths={timelineDeaths}
+                  showDeathsTimeline={showDeathsTimeline}
+                  setDeathTimeline={setDeathTimeline}
                 />
               )}
             />
@@ -95,5 +113,10 @@ function App() {
     </HashRouter>
   );
 }
+
+// const nightModeStyle = {
+//   background: 'black',
+//   // color: 'white',
+// };
 
 export default App;
