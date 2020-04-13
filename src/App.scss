@@ -20,10 +20,10 @@ body {
   padding: 0 2rem;
 }
 .text-green {
-  color: #639a67 !important;
+  color: #639a67;
 }
 .text-red {
-  color: #f73859 !important;
+  color: #f73859;
 }
 
 .dark-mode {
@@ -61,6 +61,12 @@ body {
       }
       p {
         color: #eeeeee;
+      }
+      .text-green {
+        color: #639a67;
+      }
+      .text-red {
+        color: #f73859;
       }
     }
   }
