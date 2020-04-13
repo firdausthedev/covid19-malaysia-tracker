@@ -7,9 +7,11 @@ const Graph = ({ dataGraph, historyDeaths }) => {
   const [totalConfirmedHistory, setTotalConfirmedHistory] = useState([]);
   const [totalNewCasesHistory, setTotalNewCasesHistory] = useState([]);
   const [totalDeathsHistory, setTotalDeathsHistory] = useState([]);
+  const [totalNewDeathsHistory, setTotalNewDeathsHistory] = useState([]);
   const [confirmedConfig, setConfirmedConfig] = useState({});
   const [diffConfirmedConfig, setDiffConfiremedConfig] = useState({});
   const [configDeaths, setConfigDeaths] = useState({});
+  const [diffConfigDeaths, setDiffConfigDeaths] = useState({});
 
   useEffect(() => {
     getTotalHistoryCases(dataGraph, historyDeaths);
@@ -29,17 +31,19 @@ const Graph = ({ dataGraph, historyDeaths }) => {
   };
 
   const getTotalHistoryCases = (timeline, deathTimeLine) => {
-    const array = timeline.map((h) => h[1]);
-    const arrayDiff = timeline.map((h, index) => getDiff(h, timeline[index - 1], index));
-    const arrayDeaths = deathTimeLine.map((h) => h[1]);
-    setTotalNewCasesHistory(arrayDiff);
-    setTotalConfirmedHistory(array);
-    setTotalDeathsHistory(arrayDeaths);
+    const confirmed = timeline.map((h) => h[1]);
+    const confirmedDiff = timeline.map((h, index) => getDiff(h, timeline[index - 1], index));
+    const deaths = deathTimeLine.map((h) => h[1]);
+    const deathsDiff = deathTimeLine.map((h, index) => getDiff(h, deathTimeLine[index - 1], index));
+    setTotalNewCasesHistory(confirmedDiff);
+    setTotalConfirmedHistory(confirmed);
+    setTotalDeathsHistory(deaths);
+    setTotalNewDeathsHistory(deathsDiff);
     setConfirmedConfig({
       type: 'line',
       series: [
         {
-          values: array,
+          values: confirmed,
         },
       ],
     });
@@ -47,7 +51,7 @@ const Graph = ({ dataGraph, historyDeaths }) => {
       type: 'bar',
       series: [
         {
-          values: arrayDiff,
+          values: confirmedDiff,
         },
       ],
     });
@@ -55,7 +59,15 @@ const Graph = ({ dataGraph, historyDeaths }) => {
       type: 'bar',
       series: [
         {
-          values: arrayDeaths,
+          values: deaths,
+        },
+      ],
+    });
+    setDiffConfigDeaths({
+      type: 'bar',
+      series: [
+        {
+          values: deathsDiff,
         },
       ],
     });
@@ -74,6 +86,8 @@ const Graph = ({ dataGraph, historyDeaths }) => {
       {totalNewCasesHistory.length > 0 ? <ZingChart data={diffConfirmedConfig} /> : ''}
       <h2 id='last-h2'>Total Deaths by Day</h2>
       {totalDeathsHistory.length > 0 ? <ZingChart data={configDeaths} /> : ''}
+      <h2 id='last-h2'>Total New Deaths by Day</h2>
+      {totalNewDeathsHistory.length > 0 ? <ZingChart data={diffConfigDeaths} /> : ''}
     </GraphDiv>
   );
 };

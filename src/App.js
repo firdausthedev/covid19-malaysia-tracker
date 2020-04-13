@@ -16,7 +16,7 @@ function App() {
   const [timeline, setTimeline] = useState([]);
   const [timelineDeaths, setTimelineDeaths] = useState([]);
   // eslint-disable-next-line no-unused-vars
-  const [countryName, setCountryName] = useState('MY');
+  const [countryName, setCountryName] = useState('MY'); // change country here
 
   useEffect(() => {
     setCases();
@@ -60,7 +60,14 @@ function App() {
               exact
               path='/'
               render={(props) => (
-                <Home {...props} data={data} flag={flag} loading={loading} history={timeline} />
+                <Home
+                  {...props}
+                  data={data}
+                  flag={flag}
+                  loading={loading}
+                  history={timeline}
+                  historyDeaths={timelineDeaths}
+                />
               )}
             />
             <Route
@@ -72,7 +79,14 @@ function App() {
             />
             <Route
               render={(props) => (
-                <Home {...props} data={data} flag={flag} loading={loading} history={timeline} />
+                <Home
+                  {...props}
+                  data={data}
+                  flag={flag}
+                  loading={loading}
+                  history={timeline}
+                  historyDeaths={timelineDeaths}
+                />
               )}
             />
           </Switch>

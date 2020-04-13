@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
-import CustomBtn from './CustomBtn';
 const HistoryDeaths = ({ history, loading }) => {
   const getDate = (dateData) => {
     const date = new Date(dateData);
@@ -21,9 +20,7 @@ const HistoryDeaths = ({ history, loading }) => {
   return (
     <HistoryStyle>
       <h2>Timeline : Deaths</h2>
-      <div id='graph-btn-container'>
-        <CustomBtn to='/graph'>Graphs</CustomBtn>
-      </div>
+
       <div>
         {!loading && (
           <Scrollbars style={{ height: 300 }} autoHide>
@@ -43,7 +40,6 @@ const HistoryDeaths = ({ history, loading }) => {
 };
 
 const HistoryStyle = styled.div`
-  margin-top: 1.2rem;
   border-radius: 10px;
   box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
   overflow: hidden;
@@ -63,7 +59,7 @@ const HistoryStyle = styled.div`
   }
 
   div {
-    padding-bottom: 10px;
+    padding: 10px 0;
     background: white;
     max-height: 20rem;
     text-align: center;
