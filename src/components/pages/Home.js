@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import TodayDate from './../TodayDate';
 import TotalCases from './../TotalCases';
 import HistoryCases from '../HistoryCases';
-import HistoryDeaths from '../HistoryDeaths';
 import CustomBtn from './../CustomBtn';
 import styled from 'styled-components';
 
@@ -29,8 +28,12 @@ const Home = ({
           Graphs <i className='fas fa-arrow-right' />
         </CustomBtn>
       </BtnContainer>
-      {!showDeathsTimeline && <HistoryCases history={history} loading={loading} />}
-      {showDeathsTimeline && <HistoryDeaths history={historyDeaths} loading={loading} />}
+      {!showDeathsTimeline && (
+        <HistoryCases history={history} title='Timeline: Confirmed Cases' loading={loading} />
+      )}
+      {showDeathsTimeline && (
+        <HistoryCases title='Timeline: Deaths' history={historyDeaths} loading={loading} />
+      )}
     </div>
   );
 };

@@ -26,6 +26,10 @@ body {
   color: #f73859;
 }
 
+.light-mode {
+  transition: 1.5s;
+}
+
 .dark-mode {
   background: #000000;
   transition: 1.5s;

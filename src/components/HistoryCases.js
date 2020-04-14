@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Scrollbars } from 'react-custom-scrollbars';
-const HistoryCases = ({ history, loading }) => {
+const HistoryCases = ({ history, loading, title }) => {
   const getDate = (dateData) => {
     const date = new Date(dateData);
     return date.toUTCString();
@@ -19,7 +19,7 @@ const HistoryCases = ({ history, loading }) => {
 
   return (
     <HistoryStyle id='timeline'>
-      <h2>Timeline : Confirmed Cases</h2>
+      <h2>{title}</h2>
 
       <div>
         <Scrollbars style={{ height: 300 }} autoHide>

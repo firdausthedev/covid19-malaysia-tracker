@@ -58,7 +58,7 @@ const Nav = styled.nav`
 
   a {
     color: #eeeeee;
-    background: black;
+    background-color: #1e2022;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     margin: 0 0.25rem;

@@ -77,6 +77,11 @@ const DayTitleContainer = styled.div`
     text-align: right;
     font-size: 1.4rem;
     transition: 1.5s;
+
+    i:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
   }
 `;
 
