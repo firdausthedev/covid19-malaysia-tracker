@@ -44,6 +44,11 @@ body {
 
     nav ul li a {
       background-color: black;
+
+      &:hover {
+        color: black;
+        background: #eeeeee;
+      }
     }
   }
 
