@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LoadingParas, LoadingHeaders } from './LoadingUtils';
+import { LoadingParas, LoadingHeaders, LoadingCircle } from './LoadingUtils';
 
 const TotalCases = ({ data, flag, history, loading, countryChange }) => {
   const getPreviousCase = (historyLength) => {
@@ -16,15 +16,16 @@ const TotalCases = ({ data, flag, history, loading, countryChange }) => {
 
   return (
     <Card>
-      <h2 id='country-name'>
-        {!loading && data.country}
-        {!loading && (
+      {loading ? (
+        <LoadingCircle />
+      ) : (
+        <h2 id='country-name'>
+          {data.country}
           <span>
             <img src={flag} alt={data.country} className='img-flag' onClick={countryChange} />
-            {/* <i class='fas fa-angle-right' onClick={countryChange} /> */}
           </span>
-        )}
-      </h2>
+        </h2>
+      )}
 
       <div id='card-container'>
         <div className='card'>

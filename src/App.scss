@@ -133,3 +133,10 @@ body {
     }
   }
 }
+//  {/* {!loading && data.country} */}
+//  {!loading && (
+//   <span>
+//     <img src={flag} alt={data.country} className='img-flag' onClick={countryChange} />
+//     {/* <i class='fas fa-angle-right' onClick={countryChange} /> */}
+//   </span>
+// )}
