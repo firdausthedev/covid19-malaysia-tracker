@@ -65,8 +65,8 @@ const DayTitleContainer = styled.div`
   padding: 0.7rem 0rem;
   border-radius: 10px;
   margin: auto;
-  background: white;
-  box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
+  background: var(--white-color);
+  box-shadow: var(--box);
   position: relative;
   span {
     display: inline-block;
@@ -86,7 +86,7 @@ const DayTitleContainer = styled.div`
 `;
 
 const DayTitle = styled.h2`
-  color: black;
+  color: var(--primary-color);
   display: inline-block;
 `;
 

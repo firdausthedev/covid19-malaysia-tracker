@@ -102,7 +102,7 @@ const Card = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
     .card {
-      background: white;
+      background: var(--white-color);
       display: flex;
       height: 10rem;
       align-items: center;
@@ -110,9 +110,9 @@ const Card = styled.div`
       flex-direction: column;
       text-align: center;
       border-radius: 6px;
-      box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
+      box-shadow: var(--box);
       h2 {
-        color: black;
+        color: var(--primary-color);
         font-size: 2.2rem;
         margin: 0rem 0;
       }
@@ -145,7 +145,6 @@ const Card = styled.div`
         }
         p {
           font-size: 1rem;
-          color: #333;
         }
       }
     }

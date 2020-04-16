@@ -41,15 +41,15 @@ const HistoryCases = ({ history, loading, title }) => {
 
 const HistoryStyle = styled.div`
   border-radius: 10px;
-  box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
+  box-shadow: var(--box);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin-bottom: 1.2rem;
 
   h2 {
-    background: #1e2022;
-    color: #fff;
+    background: var(--darkish-color);
+    color: var(--white-color);
     flex: 15%;
     align-content: center;
     display: flex;
@@ -60,7 +60,7 @@ const HistoryStyle = styled.div`
 
   div {
     padding: 10px 0;
-    background: white;
+    background: var(--white-color);
     max-height: 20rem;
     text-align: center;
     li {
@@ -68,7 +68,7 @@ const HistoryStyle = styled.div`
       list-style-type: none;
 
       span {
-        color: #f73859;
+        color: var(--danger-color);
         margin-left: 10px;
       }
     }

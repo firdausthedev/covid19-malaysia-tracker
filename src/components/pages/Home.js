@@ -51,8 +51,8 @@ const BtnContainer = styled.div`
   justify-content: space-between;
 
   a:first-child {
-    background: black;
-    color: white;
+    background: var(--primary-color);
+    color: var(--white-color);
     margin-right: 3px;
   }
 `;

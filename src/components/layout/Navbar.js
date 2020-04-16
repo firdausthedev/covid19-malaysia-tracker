@@ -57,22 +57,22 @@ const Nav = styled.nav`
   }
 
   a {
-    color: #eeeeee;
-    background-color: #1e2022;
+    color: var(--white-color);
+    background-color: var(--darkish-color);
     padding: 0.5rem 1rem;
     border-radius: 10px;
     margin: 0 0.25rem;
     text-decoration: none;
 
     &:hover {
-      background: #fff;
-      color: black;
+      background: var(--white-color);
+      color: var(--primary-color);
       transition: 1s;
     }
   }
 
   .title-wrapper {
-    background: white;
+    background: var(--white-color);
     padding: 0.5rem 1rem;
     border-radius: 10px;
 
@@ -115,8 +115,8 @@ const Nav = styled.nav`
 `;
 
 const NavContainer = styled.div`
-  background-color: #1e2022;
-  color: black;
+  background-color: var(--darkish-color);
+  color: var(--primary-color);
 `;
 
 export default Navbar;

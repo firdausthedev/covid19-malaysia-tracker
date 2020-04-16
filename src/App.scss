@@ -6,12 +6,22 @@
   padding: 0;
 }
 
+:root {
+  --primary-color: black;
+  --dark-color: #323232;
+  --lighter-color: #eeeef3;
+  --white-color: white;
+  --danger-color: #f73859;
+  --accent-color: #f4e04d;
+  --box: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
+  --darkish-color: #1e2022;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
-  background-color: #eeeef3;
-
-  color: #333;
+  background-color: var(--lighter-color);
+  color: black;
 
   #root .container {
     min-height: 100vh;
@@ -28,7 +38,7 @@ body {
   color: #4cbbb9;
 }
 .text-red {
-  color: #f73859;
+  color: var(--danger-color);
 }
 
 .light-mode {
@@ -36,68 +46,68 @@ body {
 }
 
 .loading-para {
-  background: #eeeef3 !important;
-  color: #eeeef3 !important;
+  background: var(--lighter-color) !important;
+  color: var(--lighter-color) !important;
   margin-top: 10px;
 }
 
 .loading-header {
-  background: #eeeef3 !important;
-  color: #eeeef3 !important;
+  background: var(--lighter-color) !important;
+  color: var(--lighter-color) !important;
   width: 10rem;
   height: 5rem;
 }
 
 .dark-mode {
-  background: #000000;
+  background: var(--primary-color);
   transition: 1.5s;
 
   #navbar {
-    background: #323232;
+    background: var(--dark-color);
 
     .title-wrapper {
-      background-color: black;
-      color: #eeeeee;
+      background-color: var(--primary-color);
+      color: var(--lighter-color);
     }
 
     nav ul li a {
-      background-color: black;
+      background-color: var(--primary-color);
 
       &:hover {
-        color: black;
-        background: #eeeeee;
+        color: var(--primary-color);
+        background: var(--lighter-color);
       }
     }
   }
 
   #today-date {
-    background: #323232;
-    color: #eeeeee;
+    background: var(--dark-color);
+    color: var(--lighter-color);
     box-shadow: none;
 
     h2 {
-      color: #eeeeee;
+      color: var(--lighter-color);
     }
   }
 
   #total-cases {
     #country-name {
-      color: #eeeeee;
+      color: var(--lighter-color);
     }
     #card-container .card {
-      background: #323232;
+      background: var(--dark-color);
       box-shadow: none;
       h2 {
-        color: white;
+        color: var(--white-color);
       }
       p {
-        color: #eeeeee;
+        color: var(--lighter-color);
       }
       .text-green {
         color: #639a67;
       }
       .text-red {
-        color: #f73859;
+        color: var(--danger-color);
       }
     }
   }
@@ -107,26 +117,26 @@ body {
       box-shadow: none;
     }
     a:first-child {
-      background: #323232;
-      color: #eeeeee;
+      background: var(--dark-color);
+      color: var(--lighter-color);
     }
   }
 
   #timeline {
     box-shadow: none;
     h2 {
-      background: #323232;
-      color: #eeeeee;
-      border-bottom: 1px solid #eeeeee;
+      background: var(--dark-color);
+      color: var(--lighter-color);
+      border-bottom: 1px solid var(--lighter-color);
     }
     div {
-      background: #323232;
-      color: #eeeeee;
+      background: var(--dark-color);
+      color: var(--lighter-color);
     }
   }
 
   #graph {
-    color: #eeeeee;
+    color: var(--lighter-color);
     min-height: 100vh;
     #title div a {
       box-shadow: none;

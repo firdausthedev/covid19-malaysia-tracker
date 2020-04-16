@@ -9,13 +9,13 @@ const CustomBtnStyle = styled(Link)`
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  color: black;
+  color: var(--primary-color);
   font-size: 1.2rem;
   font-weight: bold;
   border-radius: 10px;
   padding: 0.4rem 2rem;
-  background: #f4e04d;
-  box-shadow: 0 5px 10px 0 rgba(228, 217, 205, 0.6);
+  background: var(--accent-color);
+  box-shadow: var(--box);
   @media (max-width: 480px) {
     font-size: 0.8rem;
     padding: 0.3rem 1.8rem;
