@@ -15,11 +15,18 @@ const Home = ({
   setDeathTimeline,
   darkMode,
   darkModeFunc,
+  countryChange,
 }) => {
   return (
     <div id='total-cases'>
       <TodayDate darkMode={darkMode} darkModeFunc={darkModeFunc} />
-      <TotalCases data={data} flag={flag} history={history} loading={loading} />
+      <TotalCases
+        data={data}
+        flag={flag}
+        history={history}
+        loading={loading}
+        countryChange={countryChange}
+      />
       <BtnContainer id='btn-container'>
         <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)}>
           {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <i className='fas fa-sync-alt' />

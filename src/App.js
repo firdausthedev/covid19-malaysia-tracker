@@ -16,6 +16,8 @@ function App() {
   const [timeline, setTimeline] = useState([]);
   const [timelineDeaths, setTimelineDeaths] = useState([]);
   const [showDeathsTimeline, setShowDeathsTimeline] = useState(false);
+  let [counter, setCounter] = useState(0);
+  const countryCodeName = ['MY', 'ID', 'SG', 'TH'];
   // eslint-disable-next-line no-unused-vars
   const [countryName, setCountryName] = useState('MY'); // change country here
 
@@ -26,7 +28,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(getDarkModeStore());
 
   useEffect(() => {
-    setCases();
+    setCases(countryName);
     setDarkModeStore();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [darkMode]);
@@ -34,13 +36,26 @@ function App() {
   const setDarkModeStore = () => {
     localStorage.setItem('dark', JSON.stringify(darkMode));
   };
-  const setCases = async () => {
+
+  const countryChange = () => {
+    isLoading(true);
+    if (counter < 3) {
+      setCounter((counter += 1));
+      console.log(counter);
+      setCases(countryCodeName[counter]);
+    } else {
+      setCounter(0);
+      console.log(counter);
+      setCases(countryCodeName[0]);
+    }
+  };
+  const setCases = async (name) => {
     try {
       const [resAPI1, resAPI2] = await Promise.all([
-        axios.get('https://corona.lmao.ninja/countries/' + countryName),
+        axios.get('https://corona.lmao.ninja/countries/' + name),
         axios.get(
           'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=' +
-            countryName +
+            name +
             '&timelines=true'
         ),
       ]);
@@ -74,7 +89,7 @@ function App() {
       <div className={darkMode ? 'app dark-mode' : 'app light-mode'}>
         <Navbar />
         <div className='container'>
-          <ToastContainer autoClose={false} />
+          <ToastContainer />
           <Switch>
             <Route
               exact
@@ -91,6 +106,7 @@ function App() {
                   setDeathTimeline={setDeathTimeline}
                   darkModeFunc={setDarkModeFunc}
                   darkMode={darkMode}
+                  countryChange={countryChange}
                 />
               )}
             />
@@ -114,6 +130,7 @@ function App() {
                   setDeathTimeline={setDeathTimeline}
                   darkModeFunc={setDarkModeFunc}
                   darkMode={darkMode}
+                  countryChange={countryChange}
                 />
               )}
             />

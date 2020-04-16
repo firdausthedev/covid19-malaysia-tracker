@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LoadingParas, LoadingHeaders } from './loadingUtils';
+import { LoadingParas, LoadingHeaders } from './LoadingUtils';
 
-const TotalCases = ({ data, flag, history, loading }) => {
+const TotalCases = ({ data, flag, history, loading, countryChange }) => {
   const getPreviousCase = (historyLength) => {
     if (!loading) {
       const todayCase = Object.values(history[historyLength - 1]);
@@ -20,7 +20,8 @@ const TotalCases = ({ data, flag, history, loading }) => {
         {!loading && data.country}
         {!loading && (
           <span>
-            <img src={flag} alt={data.country} className='img-flag' />
+            <img src={flag} alt={data.country} className='img-flag' onClick={countryChange} />
+            {/* <i class='fas fa-angle-right' onClick={countryChange} /> */}
           </span>
         )}
       </h2>
@@ -47,8 +48,12 @@ const TotalCases = ({ data, flag, history, loading }) => {
           </LoadingParas>
         </div>
         <div className='card'>
-          <LoadingHeaders loading={loading}>{data.critical}</LoadingHeaders>
-          <LoadingParas loading={loading}>Critical</LoadingParas>
+          <LoadingHeaders loading={loading}>
+            {data.critical === 0 ? data.tests : data.critical}
+          </LoadingHeaders>
+          <LoadingParas loading={loading}>
+            {data.critical === 0 ? 'Tests Conducted' : 'Criticals'}
+          </LoadingParas>
         </div>
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.deaths}</LoadingHeaders>
@@ -74,9 +79,21 @@ const Card = styled.div`
     font-size: 1.4rem;
     text-align: center;
     margin: 0.5rem 0;
-    span img {
-      width: 2.2rem;
-      margin: auto 0.4rem;
+    position: relative;
+    span {
+      img {
+        width: 2.2rem;
+        margin: auto 0.4rem;
+        cursor: pointer;
+      }
+      i {
+        font-size: 1.5rem;
+        position: absolute;
+        right: 0;
+        margin-top: 3px;
+        margin-right: 0.9rem;
+        text-align: right;
+      }
     }
   }
   #card-container {
@@ -100,7 +117,7 @@ const Card = styled.div`
       }
       p {
         font-size: 1.2rem;
-        color: #333;
+        color: #606470;
       }
       .text-green {
         color: #639a67;
