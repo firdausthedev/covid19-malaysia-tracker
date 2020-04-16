@@ -19,7 +19,7 @@ function App() {
   let [counter, setCounter] = useState(0);
   const countryCodeName = ['MY', 'ID', 'SG', 'TH'];
   // eslint-disable-next-line no-unused-vars
-  const [countryName, setCountryName] = useState('MY'); // change country here
+  const [countryName, setCountryName] = useState(countryCodeName[counter]); // change country here
 
   const getDarkModeStore = () => {
     const isMode = JSON.parse(localStorage.getItem('dark'));
@@ -41,12 +41,12 @@ function App() {
     isLoading(true);
     if (counter < 3) {
       setCounter((counter += 1));
-      console.log(counter);
       setCases(countryCodeName[counter]);
+      setCountryName(countryCodeName[counter]);
     } else {
       setCounter(0);
-      console.log(counter);
       setCases(countryCodeName[0]);
+      setCountryName(countryCodeName[0]);
     }
   };
   const setCases = async (name) => {
