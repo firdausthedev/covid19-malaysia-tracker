@@ -41,12 +41,12 @@ function App() {
     isLoading(true);
     if (counter < 3) {
       setCounter((counter += 1));
-      setCases(countryCodeName[counter]);
       setCountryName(countryCodeName[counter]);
+      setCases(countryCodeName[counter]);
     } else {
       setCounter(0);
-      setCases(countryCodeName[0]);
       setCountryName(countryCodeName[0]);
+      setCases(countryCodeName[0]);
     }
   };
   const setCases = async (name) => {

@@ -156,6 +156,11 @@ const Card = styled.div`
     }
     #card-container {
       .card {
+        .loading-header {
+          width: 6rem;
+          height: 4rem;
+        }
+
         height: 5rem;
         h2 {
           font-size: 1.3rem;
