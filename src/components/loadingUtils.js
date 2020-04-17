@@ -11,7 +11,7 @@ export const LoadingHeaders = (props) => {
 
 export const LoadingCircle = () => {
   return (
-    <LoadingCircleStyle class='lds-ellipsis'>
+    <LoadingCircleStyle className='lds-ellipsis'>
       <div></div>
       <div></div>
       <div></div>

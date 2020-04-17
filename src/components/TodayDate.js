@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Animated } from 'react-animated-css';
 
 const TodayDate = ({ darkModeFunc, darkMode }) => {
   const today = new Date();
@@ -53,9 +54,11 @@ const TodayDate = ({ darkModeFunc, darkMode }) => {
   return (
     <DayTitleContainer id='today-date'>
       <DayTitle>{`${today.getDate()}${dateTh} ${monthString} ${today.getFullYear()}`}</DayTitle>
-      <span onClick={() => darkModeFunc(darkMode)}>
-        {darkMode ? <i className='fas fa-moon' /> : <i className='fas fa-sun' />}
-      </span>
+      <Animated animationIn='rollIn' isVisible={true}>
+        <span onClick={() => darkModeFunc(darkMode)}>
+          {darkMode ? <i className='fas fa-moon' /> : <i className='fas fa-sun' />}
+        </span>
+      </Animated>
     </DayTitleContainer>
   );
 };
@@ -68,7 +71,7 @@ const DayTitleContainer = styled.div`
   background: var(--white-color);
   box-shadow: var(--box);
   position: relative;
-  span {
+  .animated {
     display: inline-block;
     position: absolute;
     right: 0;
@@ -77,9 +80,10 @@ const DayTitleContainer = styled.div`
     text-align: right;
     font-size: 1.4rem;
     transition: 1.5s;
-
+  }
+  span {
     i:hover {
-      transform: scale(1.2);
+      animation: heartBeat 1s;
       cursor: pointer;
     }
   }
