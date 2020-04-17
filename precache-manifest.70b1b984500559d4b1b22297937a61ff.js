@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c7575e5b354624b3c645c7668f487ae1",
+    "revision": "12c129ea082b298dd0d261d80fce95d4",
     "url": "/covid19-malaysia-tracker/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/covid19-malaysia-tracker/static/css/2.f42e59c9.chunk.css"
   },
   {
-    "revision": "2a99c8bc68ffcc61af05",
+    "revision": "2ed28ce3d510c66c5a0c",
     "url": "/covid19-malaysia-tracker/static/css/main.dfe728ea.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/covid19-malaysia-tracker/static/js/2.3582df92.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2a99c8bc68ffcc61af05",
-    "url": "/covid19-malaysia-tracker/static/js/main.80bddf37.chunk.js"
+    "revision": "2ed28ce3d510c66c5a0c",
+    "url": "/covid19-malaysia-tracker/static/js/main.3033e3fe.chunk.js"
   },
   {
     "revision": "2cdfafec3b7136f0b2c3",
