@@ -1,0 +1,317 @@
+[33mcommit 9ebf95c290d4198b4fbcc7c50d87d034f84498ce[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 17 16:39:17 2020 +0800
+
+    added api backup
+
+[33mcommit aebca4de4213fda7082198999c5056ec95d5ae77[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 17 04:58:49 2020 +0800
+
+    refactor
+
+[33mcommit 8c32b0e11328379f2147eb86c1133851b7f1ad60[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 17 04:11:26 2020 +0800
+
+    added loading circle
+
+[33mcommit 77940002d1f1f021dc6c1ce559e63b635d1e3bcd[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 17 02:45:55 2020 +0800
+
+    fix light mode
+
+[33mcommit 093ceea4371158c115a2642a31e50083c5038b15[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 17 02:34:41 2020 +0800
+
+    fixed mobile loading
+
+[33mcommit 8f79bba705237139b6673b9bf3fbd20ccb266bb4[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Thu Apr 16 20:58:55 2020 +0800
+
+    fix bugs
+
+[33mcommit 6328228ff5bf840f8a2b5211dde4bea3aa12127a[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Thu Apr 16 20:49:09 2020 +0800
+
+    added my neighbours
+
+[33mcommit 550ecdeadcd59ec14110d0be62f94ce454737291[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Thu Apr 16 00:43:06 2020 +0800
+
+    updated packages
+
+[33mcommit d265cbe433a560ef2f726c5bbe3e539fef186851[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Wed Apr 15 06:53:01 2020 +0800
+
+    dark mode nav fixes
+
+[33mcommit f073f99c9dfdf8e28ee323f2e6f23b6ef21a3571[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Wed Apr 15 04:56:57 2020 +0800
+
+    refactor
+
+[33mcommit 4851d657eefd0719e02c13972ff28be1c1c98ea2[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 14 04:37:11 2020 +0800
+
+    minor fixes
+
+[33mcommit c698073dde6c939ae5a0b127dbc66ce2a2cf82eb[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 14 04:25:15 2020 +0800
+
+    minor fixes
+
+[33mcommit 77fca73c2dbe816b4f44d81166326416dcd9bfea[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 14 04:17:02 2020 +0800
+
+    minor fixes
+
+[33mcommit dc7fe1f4d0c1f846296e03e1b857f6b2f3c5dc58[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 14 04:10:56 2020 +0800
+
+    added night mode
+
+[33mcommit 254c25658c67302c498666b12aa4469d3ad71a99[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 13 21:39:25 2020 +0800
+
+    refactor and nightmode semi complete
+
+[33mcommit b9d02cb4ebd9fd5535ae8d27ae4c0c05bb4021ce[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 13 16:33:33 2020 +0800
+
+    added deaths stats
+
+[33mcommit 2bd9372d309009e4767d37ec373a1bc925470514[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 13 03:49:38 2020 +0800
+
+    added deaths graph and minor refactor
+
+[33mcommit a7eb46e9e423ccf84c368c1cf71f1565074e7e4e[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sun Apr 12 15:33:00 2020 +0800
+
+    refactor
+
+[33mcommit 61fd316c01d4b5b9fd453aa4a1a9b61fc70619c1[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sun Apr 12 13:28:02 2020 +0800
+
+    refactor
+
+[33mcommit e2d343da1c308f72148652d74e2d51d774ca4823[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sun Apr 12 00:47:29 2020 +0800
+
+    added loading to country name and history
+
+[33mcommit 941664492c766910c39d27d18f9350c9c361ef04[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sun Apr 12 00:04:17 2020 +0800
+
+    refactor
+
+[33mcommit 4ba9eb60a2471d8dd03910b03f47412223d4b873[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 23:46:04 2020 +0800
+
+    refactor
+
+[33mcommit 7a754db2824a493c13daa6b6ee41205a25e1d1a5[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 20:13:56 2020 +0800
+
+    refactor
+
+[33mcommit 800426701136592c73808f934a93d0db8040904d[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 19:18:10 2020 +0800
+
+    fix mobile css
+
+[33mcommit 32a301f92623a9955aa22928dcb98d1e78136cf8[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 19:10:53 2020 +0800
+
+    added alert and minor refactoring
+
+[33mcommit fbcbfd7a829a1a4bb07cf61777915fd8ed4ab810[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 05:08:02 2020 +0800
+
+    added fatality and death rate, tweak few designs
+
+[33mcommit 0e9de68a5f1972399f3a0bca921a834d41f4a6ca[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 01:06:20 2020 +0800
+
+    added graphs
+
+[33mcommit cd0515cb19f7197ffc468da0f05562ec52f6f91d[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 01:05:07 2020 +0800
+
+    fix routing issues
+
+[33mcommit 8b0d5720530a2ca3d86f20ee36c9e04766fb1cf9[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Sat Apr 11 00:36:35 2020 +0800
+
+    added graphs
+
+[33mcommit 63723ab2e436cecff9eaac48445dae5ae11b886d[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 10 16:16:55 2020 +0800
+
+    added loading style
+
+[33mcommit 683ece6184230661639a6be599afb065e3d998c1[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 10 12:23:40 2020 +0800
+
+    added loading for alt new cases
+
+[33mcommit 8a325e46e852ddfb435d0dcebc6a65cd5b071bac[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 10 12:00:30 2020 +0800
+
+    added todaycase alt
+
+[33mcommit 521402a20193b3052cd1dec4848fe45e4309b120[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 10 06:34:20 2020 +0800
+
+    changed scrollbar
+
+[33mcommit 429fec39ca782dd94457006d7e4d03b93665f620[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 10 06:25:40 2020 +0800
+
+    changed design
+
+[33mcommit c4259c98d66d0cc7952b5d7090a918506dd86125[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Fri Apr 10 06:23:54 2020 +0800
+
+    changed design
+
+[33mcommit a270b51c44d0e8ee7c148476d20b9d74b6635687[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Thu Apr 9 22:38:32 2020 +0800
+
+    change api provider
+
+[33mcommit e58b3a95991b4e412543c636881e84404ebec121[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Wed Apr 8 04:24:22 2020 +0800
+
+    change header color
+
+[33mcommit a3b27488d43593e550182f693fd9c7bd6c68f712[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 18:56:06 2020 +0800
+
+    added diff for history
+
+[33mcommit e9b835d4af094132eac251f127c9a397f5476466[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 16:11:42 2020 +0800
+
+    fixed icon not showing
+
+[33mcommit fcf0f77ebefaa8da1ee4fbc1907448bcb1f075a3[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 16:09:40 2020 +0800
+
+    mobile history css
+
+[33mcommit 78d78e9c102ce21a930d80ba980f5ccbe3faf5f9[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 16:03:25 2020 +0800
+
+    fixed icon not showing
+
+[33mcommit b3e04e2071e0a41a7ad31768ca10a81c27bab18d[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 15:59:56 2020 +0800
+
+    added history
+
+[33mcommit 96c0556b4e2ea6541014749c476a4d9f6f952cf2[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 14:29:05 2020 +0800
+
+    faster queries
+
+[33mcommit 9e8b1a9765732defa4d5f2f089885bbd0044fc90[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 01:47:41 2020 +0800
+
+    refactoring
+
+[33mcommit ed3b17e6fbec9068ab8f1825668226dcc231c03f[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 01:40:49 2020 +0800
+
+    fix alignments for mobile
+
+[33mcommit d1d37c173ea27b0c1531101112891a13056b9b58[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 01:38:11 2020 +0800
+
+    fix alignments for mobile
+
+[33mcommit 31c62f05db0aa140c8f4a978ba4953b6c2e4d7ab[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Tue Apr 7 01:25:18 2020 +0800
+
+    mobile css
+
+[33mcommit e3e3faf05a8f49060b7133dc85c61db3caa326f3[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 6 22:04:43 2020 +0800
+
+    remove logs
+
+[33mcommit 97ff92aa4fcc4b1ece8ce6b91da4712b2554c8f5[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 6 22:02:02 2020 +0800
+
+    fix bug
+
+[33mcommit b303e7956e8c6547a60efa9890bbbfa01dcb28bc[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 6 22:00:52 2020 +0800
+
+    fix bug
+
+[33mcommit bc0103e9764c5202442a4f81472af0840d83ba26[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 6 21:52:22 2020 +0800
+
+    gh pages
+
+[33mcommit fb5c07d6aad75cabf34f64a919603e5aeb26b09f[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 6 21:49:00 2020 +0800
+
+    version 1.0.0
+
+[33mcommit e4acb234f7cdc86f8a0f1590978ddeb780202ed4[m
+Author: firdauscomel <bilbofirdaus@gmail.com>
+Date:   Mon Apr 6 14:30:49 2020 +0800
+
+    Initialize project using Create React App

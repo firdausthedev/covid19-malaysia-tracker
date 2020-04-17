@@ -146,7 +146,12 @@ function App() {
               exact
               path='/graph'
               render={(props) => (
-                <Graph {...props} dataGraph={timeline} historyDeaths={timelineDeaths} />
+                <Graph
+                  {...props}
+                  dataGraph={timeline}
+                  historyDeaths={timelineDeaths}
+                  darkMode={darkMode}
+                />
               )}
             />
             <Route

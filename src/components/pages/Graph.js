@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ZingChart from 'zingchart-react';
 import CustomeBtn from './../CustomBtn';
 
-const Graph = ({ dataGraph, historyDeaths }) => {
+const Graph = ({ dataGraph, historyDeaths, darkMode }) => {
   const [totalConfirmedHistory, setTotalConfirmedHistory] = useState([]);
   const [totalNewCasesHistory, setTotalNewCasesHistory] = useState([]);
   const [totalDeathsHistory, setTotalDeathsHistory] = useState([]);
@@ -39,7 +39,9 @@ const Graph = ({ dataGraph, historyDeaths }) => {
     setTotalConfirmedHistory(confirmed);
     setTotalDeathsHistory(deaths);
     setTotalNewDeathsHistory(deathsDiff);
+
     setConfirmedConfig({
+      theme: darkMode ? 'dark' : 'light',
       type: 'line',
       series: [
         {
@@ -48,6 +50,7 @@ const Graph = ({ dataGraph, historyDeaths }) => {
       ],
     });
     setDiffConfiremedConfig({
+      theme: darkMode ? 'dark' : 'light',
       type: 'bar',
       series: [
         {
@@ -56,6 +59,7 @@ const Graph = ({ dataGraph, historyDeaths }) => {
       ],
     });
     setConfigDeaths({
+      theme: darkMode ? 'dark' : 'light',
       type: 'bar',
       series: [
         {
@@ -64,6 +68,7 @@ const Graph = ({ dataGraph, historyDeaths }) => {
       ],
     });
     setDiffConfigDeaths({
+      theme: darkMode ? 'dark' : 'light',
       type: 'bar',
       series: [
         {
