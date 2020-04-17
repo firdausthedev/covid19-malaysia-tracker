@@ -84,14 +84,13 @@ const Graph = ({ dataGraph, historyDeaths, darkMode }) => {
           <CustomeBtn to='/'>Back</CustomeBtn>
         </div>
         <h2>Total Confirmed Cases by Day</h2>
-        <div></div>
       </div>
       {totalConfirmedHistory.length > 0 ? <ZingChart data={confirmedConfig} /> : ''}
-      <h2 id='last-h2'>Total New Cases by Day</h2>
+      <h2>Total New Cases by Day</h2>
       {totalNewCasesHistory.length > 0 ? <ZingChart data={diffConfirmedConfig} /> : ''}
-      <h2 id='last-h2'>Total Deaths by Day</h2>
+      <h2>Total Deaths by Day</h2>
       {totalDeathsHistory.length > 0 ? <ZingChart data={configDeaths} /> : ''}
-      <h2 id='last-h2'>Total New Deaths by Day</h2>
+      <h2>Total New Deaths by Day</h2>
       {totalNewDeathsHistory.length > 0 ? <ZingChart data={diffConfigDeaths} /> : ''}
     </GraphDiv>
   );
@@ -108,13 +107,9 @@ const GraphDiv = styled.div`
       display: inline-block;
       margin: auto 0;
     }
-    h2 {
-      text-align: center;
-      display: inline-block;
-    }
   }
 
-  #last-h2 {
+  h2 {
     text-align: center;
     padding: 0.8rem 0;
   }

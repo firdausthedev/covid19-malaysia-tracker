@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVirus } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 const Navbar = ({ icon, title }) => {
   return (
     <NavContainer id='navbar'>
       <Nav>
         <div className='title-wrapper'>
           <h2>
-            <i className={icon} /> {title}
+            <FontAwesomeIcon icon={faVirus} /> {title}
           </h2>
         </div>
         <ul>
@@ -18,7 +20,7 @@ const Navbar = ({ icon, title }) => {
               rel='noopener noreferrer'
               target='_blank'
             >
-              <li className='fab fa-github' /> Check out codes
+              <FontAwesomeIcon icon={faGithub} /> Check out codes
             </a>
           </li>
         </ul>
@@ -80,7 +82,7 @@ const Nav = styled.nav`
       font-size: 1.2rem;
     }
 
-    i {
+    svg {
       transform: scale(1);
       animation: pulse 2s linear infinite;
     }

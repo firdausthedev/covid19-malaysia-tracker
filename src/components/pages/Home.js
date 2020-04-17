@@ -4,7 +4,8 @@ import TotalCases from './../TotalCases';
 import HistoryCases from '../HistoryCases';
 import CustomBtn from './../CustomBtn';
 import styled from 'styled-components';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 const Home = ({
   data,
   flag,
@@ -29,10 +30,10 @@ const Home = ({
       />
       <BtnContainer id='btn-container'>
         <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)}>
-          {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <i className='fas fa-sync-alt' />
+          {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <FontAwesomeIcon icon={faSyncAlt} />
         </CustomBtn>
         <CustomBtn to='/graph'>
-          Graphs <i className='fas fa-arrow-right' />
+          Graphs <FontAwesomeIcon icon={faArrowRight} />
         </CustomBtn>
       </BtnContainer>
       {!showDeathsTimeline && (

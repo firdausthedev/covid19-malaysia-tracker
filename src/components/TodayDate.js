@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Animated } from 'react-animated-css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 const TodayDate = ({ darkModeFunc, darkMode }) => {
   const today = new Date();
@@ -56,7 +58,7 @@ const TodayDate = ({ darkModeFunc, darkMode }) => {
       <DayTitle>{`${today.getDate()}${dateTh} ${monthString} ${today.getFullYear()}`}</DayTitle>
       <Animated animationIn='rollIn' isVisible={true}>
         <span onClick={() => darkModeFunc(darkMode)}>
-          {darkMode ? <i className='fas fa-moon' /> : <i className='fas fa-sun' />}
+          {darkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
         </span>
       </Animated>
     </DayTitleContainer>
@@ -75,14 +77,13 @@ const DayTitleContainer = styled.div`
     display: inline-block;
     position: absolute;
     right: 0;
-    margin-top: 3px;
     margin-right: 0.7rem;
     text-align: right;
     font-size: 1.4rem;
     transition: 1.5s;
   }
   span {
-    i:hover {
+    svg:hover {
       animation: heartBeat 1s;
       cursor: pointer;
     }
