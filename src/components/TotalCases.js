@@ -111,6 +111,7 @@ const Card = styled.div`
       text-align: center;
       border-radius: 6px;
       box-shadow: var(--box);
+      padding: 0 0.4rem;
       h2 {
         color: var(--primary-color);
         font-size: 2.2rem;

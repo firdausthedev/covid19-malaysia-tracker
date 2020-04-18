@@ -101,7 +101,7 @@ const GraphDiv = styled.div`
   #title {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 0.8rem 0;
+    padding: 0 0 0.8rem 0;
 
     div {
       display: inline-block;

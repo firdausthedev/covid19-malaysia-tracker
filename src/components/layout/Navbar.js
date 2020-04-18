@@ -85,6 +85,10 @@ const Nav = styled.nav`
     svg {
       transform: scale(1);
       animation: pulse 2s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
     }
     @keyframes pulse {
       0% {

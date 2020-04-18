@@ -56,7 +56,7 @@ const TodayDate = ({ darkModeFunc, darkMode }) => {
   return (
     <DayTitleContainer id='today-date'>
       <DayTitle>{`${today.getDate()}${dateTh} ${monthString} ${today.getFullYear()}`}</DayTitle>
-      <Animated animationIn='rollIn' isVisible={true}>
+      <Animated style={{ animation: 'heartBeat 1.5s' }}>
         <span onClick={() => darkModeFunc(darkMode)}>
           {darkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
         </span>
@@ -93,6 +93,9 @@ const DayTitleContainer = styled.div`
 const DayTitle = styled.h2`
   color: var(--primary-color);
   display: inline-block;
+  @media (max-width: 420px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export default TodayDate;
