@@ -125,7 +125,7 @@ const GraphDiv = styled.div`
       border-radius: 8px;
     }
 
-    #last-h2 {
+    h2 {
       font-size: 1rem;
     }
   }
