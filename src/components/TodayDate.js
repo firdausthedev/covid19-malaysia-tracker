@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Animated } from 'react-animated-css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { HEARTBEAT, ROLLIN } from './style/animation';
 
 const TodayDate = ({ darkModeFunc, darkMode }) => {
   const today = new Date();
@@ -56,11 +56,11 @@ const TodayDate = ({ darkModeFunc, darkMode }) => {
   return (
     <DayTitleContainer id='today-date'>
       <DayTitle>{`${today.getDate()}${dateTh} ${monthString} ${today.getFullYear()}`}</DayTitle>
-      <Animated style={{ animation: 'heartBeat 1.5s' }}>
+      <div id='today-date-theme-icon'>
         <span onClick={() => darkModeFunc(darkMode)}>
           {darkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
         </span>
-      </Animated>
+      </div>
     </DayTitleContainer>
   );
 };
@@ -73,7 +73,8 @@ const DayTitleContainer = styled.div`
   background: var(--white-color);
   box-shadow: var(--box);
   position: relative;
-  .animated {
+
+  #today-date-theme-icon {
     display: inline-block;
     position: absolute;
     right: 0;
@@ -81,11 +82,12 @@ const DayTitleContainer = styled.div`
     text-align: right;
     font-size: 1.4rem;
     transition: 1.5s;
-  }
-  span {
-    svg:hover {
-      animation: heartBeat 1s;
-      cursor: pointer;
+    ${ROLLIN}
+    span svg {
+      :hover {
+        cursor: pointer;
+        ${HEARTBEAT}
+      }
     }
   }
 `;

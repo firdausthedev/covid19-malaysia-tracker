@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVirus } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { PULSE } from '../style/animation';
 const Navbar = ({ icon, title }) => {
   return (
     <NavContainer id='navbar'>
@@ -84,23 +85,10 @@ const Nav = styled.nav`
 
     svg {
       transform: scale(1);
-      animation: pulse 2s linear infinite;
+      ${PULSE}
 
       &:hover {
         animation-play-state: paused;
-      }
-    }
-    @keyframes pulse {
-      0% {
-        transform: scale(1.3);
-      }
-
-      70% {
-        transform: scale(1);
-      }
-
-      100% {
-        transform: scale(1.3);
       }
     }
   }

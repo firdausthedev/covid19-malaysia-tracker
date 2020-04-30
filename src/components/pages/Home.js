@@ -29,7 +29,7 @@ const Home = ({
         countryChange={countryChange}
       />
       <BtnContainer id='btn-container'>
-        <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)}>
+        <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)} black>
           {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <FontAwesomeIcon icon={faSyncAlt} />
         </CustomBtn>
         <CustomBtn to='/graph'>
@@ -50,12 +50,6 @@ const BtnContainer = styled.div`
   padding: 1rem 0;
   display: flex;
   justify-content: space-between;
-
-  a:first-child {
-    background: var(--primary-color);
-    color: var(--white-color);
-    margin-right: 3px;
-  }
 `;
 
 export default Home;

@@ -8,6 +8,7 @@ import Graph from './components/pages/Graph';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { createGlobalStyle } from 'styled-components';
 
 function App() {
   const [data, setData] = useState({});
@@ -118,7 +119,8 @@ function App() {
 
   return (
     <HashRouter basename='/'>
-      <div className={darkMode ? 'app dark-mode' : 'app light-mode'}>
+      <GlobalStyle />
+      <div className={darkMode ? 'dark-mode' : 'light-mode'}>
         <Navbar />
         <div className='container'>
           <ToastContainer />
@@ -177,5 +179,32 @@ function App() {
     </HashRouter>
   );
 }
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: black;
+  --dark-color: #323232;
+  --lighter-color: #eeeef3;
+  --white-color: white;
+  --danger-color: #f73859;
+  --accent-color: #f4e04d;
+  --box:  0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
+  --darkish-color: #1e2022;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  background-color: var(--lighter-color);
+  color: black;
+}
+`;
 
 export default App;
