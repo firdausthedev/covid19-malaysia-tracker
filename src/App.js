@@ -195,7 +195,7 @@ const GlobalStyle = createGlobalStyle`
   --white-color: white;
   --danger-color: #f73859;
   --accent-color: #f4e04d;
-  --box:  0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
+  --box:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   --darkish-color: #1e2022;
 }
 
