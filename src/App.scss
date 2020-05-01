@@ -1,6 +1,33 @@
-#root .container {
-  min-height: 100vh;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+:root {
+  --primary-color: black;
+  --dark-color: #323232;
+  --lighter-color: #eeeef3;
+  --white-color: white;
+  --danger-color: #f73859;
+  --accent-color: #f4e04d;
+  --box: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --darkish-color: #1e2022;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  background-color: var(--lighter-color);
+  color: black;
+
+  #root .container {
+    min-height: 100vh;
+  }
+}
+
 .container {
   max-width: 1100px;
   margin: auto;
