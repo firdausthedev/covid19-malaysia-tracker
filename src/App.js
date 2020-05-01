@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { HashRouter, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import './App.scss';
 import Navbar from './components/layout/Navbar';
@@ -52,7 +52,7 @@ function App() {
   const setCases = async (name) => {
     try {
       const [resAPI1, resAPI2] = await Promise.all([
-        axios.get('https://corona.lmao.ninja/v2/countries/' + name + '?yesterday=true'),
+        axios.get('https://corona.lmao.ninja/v2/countries/' + name),
         axios.get(
           'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=' +
             name +
@@ -85,7 +85,7 @@ function App() {
   };
 
   return (
-    <HashRouter basename='/'>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className={darkMode ? 'dark-mode' : 'light-mode'}>
         <Navbar />
         <div className='container'>
@@ -142,7 +142,7 @@ function App() {
           </Switch>
         </div>
       </div>
-    </HashRouter>
+    </Router>
   );
 }
 
