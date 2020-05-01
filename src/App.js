@@ -118,7 +118,6 @@ function App() {
 
   return (
     <HashRouter basename='/'>
-      <GlobalStyle />
       <div className={darkMode ? 'dark-mode' : 'light-mode'}>
         <Navbar />
         <div className='container'>
