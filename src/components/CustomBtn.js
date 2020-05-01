@@ -30,7 +30,6 @@ const CustomBtnStyle = styled(Link)`
       color: var(--white-color);
 
       svg {
-        ${ROTATE};
         animation-play-state: paused;
       }
       &:hover {
