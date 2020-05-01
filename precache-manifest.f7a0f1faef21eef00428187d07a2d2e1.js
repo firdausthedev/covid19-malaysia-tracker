@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3ed96b696350700f1da3f74946aab951",
+    "revision": "c272b93f403882ec0aa4264298b4f3f9",
     "url": "/covid19-malaysia-tracker/index.html"
   },
   {
-    "revision": "2d25ad2e636b6bb34ab7",
+    "revision": "287f12e39d12b4ad0f59",
     "url": "/covid19-malaysia-tracker/static/css/2.f42e59c9.chunk.css"
   },
   {
-    "revision": "7544e05b2e7f4f5c2bbc",
+    "revision": "ba42d40dd3b476bd8401",
     "url": "/covid19-malaysia-tracker/static/css/main.6e2bdabd.chunk.css"
   },
   {
-    "revision": "2d25ad2e636b6bb34ab7",
-    "url": "/covid19-malaysia-tracker/static/js/2.70ec303c.chunk.js"
+    "revision": "287f12e39d12b4ad0f59",
+    "url": "/covid19-malaysia-tracker/static/js/2.885d0ee7.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/covid19-malaysia-tracker/static/js/2.70ec303c.chunk.js.LICENSE.txt"
+    "url": "/covid19-malaysia-tracker/static/js/2.885d0ee7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7544e05b2e7f4f5c2bbc",
-    "url": "/covid19-malaysia-tracker/static/js/main.c5309c1c.chunk.js"
+    "revision": "ba42d40dd3b476bd8401",
+    "url": "/covid19-malaysia-tracker/static/js/main.790ef179.chunk.js"
   },
   {
     "revision": "2cdfafec3b7136f0b2c3",
