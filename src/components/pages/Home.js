@@ -6,6 +6,7 @@ import CustomBtn from './../CustomBtn';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
+
 const Home = ({
   data,
   flag,
@@ -21,13 +22,7 @@ const Home = ({
   return (
     <div id='total-cases'>
       <TodayDate darkMode={darkMode} darkModeFunc={darkModeFunc} />
-      <TotalCases
-        data={data}
-        flag={flag}
-        history={history}
-        loading={loading}
-        countryChange={countryChange}
-      />
+      <TotalCases data={data} flag={flag} loading={loading} countryChange={countryChange} />
       <BtnContainer id='btn-container'>
         <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)} black>
           {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <FontAwesomeIcon icon={faSyncAlt} />

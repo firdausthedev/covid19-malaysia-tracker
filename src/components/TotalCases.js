@@ -2,15 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { LoadingParas, LoadingHeaders, LoadingCircle } from './LoadingUtils';
 
-const TotalCases = ({ data, flag, history, loading, countryChange }) => {
-  const getPreviousCase = (historyLength) => {
-    if (!loading) {
-      const todayCase = Object.values(history[historyLength - 1]);
-      const yesterdayCase = Object.values(history[historyLength - 2]);
-      const total = todayCase[1] - yesterdayCase[1];
-      return total;
-    }
-  };
+const TotalCases = ({ data, flag, loading, countryChange }) => {
   const fatalityRate = ((data.deaths / data.cases) * 100).toFixed(2);
   const recoveryRate = ((data.recovered / data.cases) * 100).toFixed(2);
 
@@ -33,9 +25,7 @@ const TotalCases = ({ data, flag, history, loading, countryChange }) => {
           <LoadingParas loading={loading}>Confirmed Cases</LoadingParas>
         </div>
         <div className='card'>
-          <LoadingHeaders loading={loading}>
-            {data.todayCases === 0 ? getPreviousCase(history.length) : data.todayCases}
-          </LoadingHeaders>
+          <LoadingHeaders loading={loading}>{data.todayCases}</LoadingHeaders>
           <LoadingParas loading={loading}>New Cases</LoadingParas>
         </div>
         <div className='card'>

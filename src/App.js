@@ -51,8 +51,9 @@ function App() {
   };
   const setCases = async (name) => {
     try {
-      const [resAPI1, resAPI2] = await Promise.all([
+      const [resAPI1, resAPIYest, resAPI2] = await Promise.all([
         axios.get('https://corona.lmao.ninja/v2/countries/' + name),
+        axios.get('https://corona.lmao.ninja/v2/countries/' + name + '?yesterday=true'),
         axios.get(
           'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=' +
             name +
@@ -61,8 +62,13 @@ function App() {
       ]);
       // API https://corona.lmao.ninja/'
       const flagSrc = resAPI1.data.countryInfo.flag;
+      if (resAPI1.data.todayCases === 0) {
+        setData(resAPIYest.data);
+      } else {
+        setData(resAPI1.data);
+      }
+
       setFlag(flagSrc);
-      setData(resAPI1.data);
 
       // API https://coronavirus-tracker-api.herokuapp.com/v2/locations
       const timelineAPI = resAPI2.data.locations[0].timelines.confirmed.timeline;

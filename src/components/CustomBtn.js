@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ROTATE } from './style/animation';
 const CustomBtn = (props) => {
   return <CustomBtnStyle {...props}>{props.children}</CustomBtnStyle>;
 };
