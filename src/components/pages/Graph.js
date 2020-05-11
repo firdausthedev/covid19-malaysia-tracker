@@ -85,6 +85,7 @@ const Graph = ({ dataGraph, historyDeaths, darkMode }) => {
         </div>
         <h2>Total Confirmed Cases by Day</h2>
       </div>
+
       {totalConfirmedHistory.length > 0 ? <ZingChart data={confirmedConfig} /> : ''}
       <h2>Total New Cases by Day</h2>
       {totalNewCasesHistory.length > 0 ? <ZingChart data={diffConfirmedConfig} /> : ''}

@@ -8,6 +8,7 @@ import Graph from './components/pages/Graph';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Page404 from './components/pages/404page';
 
 function App() {
   const [data, setData] = useState({});
@@ -128,23 +129,7 @@ function App() {
                 />
               )}
             />
-            <Route
-              render={(props) => (
-                <Home
-                  {...props}
-                  data={data}
-                  flag={flag}
-                  loading={loading}
-                  history={timeline}
-                  historyDeaths={timelineDeaths}
-                  showDeathsTimeline={showDeathsTimeline}
-                  setDeathTimeline={setDeathTimeline}
-                  darkModeFunc={setDarkModeFunc}
-                  darkMode={darkMode}
-                  countryChange={countryChange}
-                />
-              )}
-            />
+            <Route exact path='*' render={(props) => <Page404 {...props} darkMode={darkMode} />} />
           </Switch>
         </div>
       </div>
