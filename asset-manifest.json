@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/covid19-malaysia-tracker/static/css/main.6e2bdabd.chunk.css",
-    "main.js": "/covid19-malaysia-tracker/static/js/main.a743a68d.chunk.js",
-    "main.js.map": "/covid19-malaysia-tracker/static/js/main.a743a68d.chunk.js.map",
+    "main.js": "/covid19-malaysia-tracker/static/js/main.a420026c.chunk.js",
+    "main.js.map": "/covid19-malaysia-tracker/static/js/main.a420026c.chunk.js.map",
     "runtime-main.js": "/covid19-malaysia-tracker/static/js/runtime-main.d93857a9.js",
     "runtime-main.js.map": "/covid19-malaysia-tracker/static/js/runtime-main.d93857a9.js.map",
-    "static/css/2.f42e59c9.chunk.css": "/covid19-malaysia-tracker/static/css/2.f42e59c9.chunk.css",
-    "static/js/2.0cdfabfa.chunk.js": "/covid19-malaysia-tracker/static/js/2.0cdfabfa.chunk.js",
-    "static/js/2.0cdfabfa.chunk.js.map": "/covid19-malaysia-tracker/static/js/2.0cdfabfa.chunk.js.map",
+    "static/css/2.d34346ea.chunk.css": "/covid19-malaysia-tracker/static/css/2.d34346ea.chunk.css",
+    "static/js/2.ca686de3.chunk.js": "/covid19-malaysia-tracker/static/js/2.ca686de3.chunk.js",
+    "static/js/2.ca686de3.chunk.js.map": "/covid19-malaysia-tracker/static/js/2.ca686de3.chunk.js.map",
     "index.html": "/covid19-malaysia-tracker/index.html",
-    "precache-manifest.34492081e1b0efb201527d2477af9479.js": "/covid19-malaysia-tracker/precache-manifest.34492081e1b0efb201527d2477af9479.js",
+    "precache-manifest.2ba68980a70bedf2ef9b3d3b7e72ea8e.js": "/covid19-malaysia-tracker/precache-manifest.2ba68980a70bedf2ef9b3d3b7e72ea8e.js",
     "service-worker.js": "/covid19-malaysia-tracker/service-worker.js",
-    "static/css/2.f42e59c9.chunk.css.map": "/covid19-malaysia-tracker/static/css/2.f42e59c9.chunk.css.map",
+    "static/css/2.d34346ea.chunk.css.map": "/covid19-malaysia-tracker/static/css/2.d34346ea.chunk.css.map",
     "static/css/main.6e2bdabd.chunk.css.map": "/covid19-malaysia-tracker/static/css/main.6e2bdabd.chunk.css.map",
-    "static/js/2.0cdfabfa.chunk.js.LICENSE.txt": "/covid19-malaysia-tracker/static/js/2.0cdfabfa.chunk.js.LICENSE.txt"
+    "static/js/2.ca686de3.chunk.js.LICENSE.txt": "/covid19-malaysia-tracker/static/js/2.ca686de3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d93857a9.js",
-    "static/css/2.f42e59c9.chunk.css",
-    "static/js/2.0cdfabfa.chunk.js",
+    "static/css/2.d34346ea.chunk.css",
+    "static/js/2.ca686de3.chunk.js",
     "static/css/main.6e2bdabd.chunk.css",
-    "static/js/main.a743a68d.chunk.js"
+    "static/js/main.a420026c.chunk.js"
   ]
 }
