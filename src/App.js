@@ -52,28 +52,22 @@ function App() {
   };
   const setCases = async (name) => {
     try {
-      const [resAPI1, resAPIYest, resAPI2] = await Promise.all([
-        axios.get('https://corona.lmao.ninja/v2/countries/' + name),
-        axios.get('https://corona.lmao.ninja/v2/countries/' + name + '?yesterday=true'),
+      const [resAPI1, resAPI2] = await Promise.all([
+        axios.get('https://disease.sh/v3/covid-19/countries/' + name + '?yesterday=true&strict=true&allowNull=true'),
         axios.get(
-          'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=' +
-            name +
-            '&timelines=true'
+          'https://disease.sh/v3/covid-19/historical/' +
+          name +
+          '?lastdays=all'
         ),
       ]);
-      // API https://corona.lmao.ninja/'
-      const flagSrc = resAPI1.data.countryInfo.flag;
-      if (resAPI1.data.todayCases === 0) {
-        setData(resAPIYest.data);
-      } else {
-        setData(resAPI1.data);
-      }
 
+      const flagSrc = resAPI1.data.countryInfo.flag;
+      setData(resAPI1.data)
       setFlag(flagSrc);
 
-      // API https://coronavirus-tracker-api.herokuapp.com/v2/locations
-      const timelineAPI = resAPI2.data.locations[0].timelines.confirmed.timeline;
-      const timelineDeathsAPI = resAPI2.data.locations[0].timelines.deaths.timeline;
+
+      const timelineAPI = resAPI2.data.timeline.cases;
+      const timelineDeathsAPI = resAPI2.data.timeline.deaths;
       setTimeline(Object.entries(timelineAPI));
       setTimelineDeaths(Object.entries(timelineDeathsAPI));
       isLoading(false);
