@@ -7,7 +7,7 @@ const TotalCases = ({ data, flag, loading, countryChange }) => {
   const recoveryRate = ((data.recovered / data.cases) * 100).toFixed(2);
   const lastUpdated = new Date(data.updated);
   const mins = ('0' + lastUpdated.getUTCMinutes()).slice(-2);
-  const time = `${lastUpdated.getUTCDate()}/${lastUpdated.getUTCMonth() + 1}/${lastUpdated.getFullYear().toString().substring(2,)} ${lastUpdated.getUTCHours() < 12 ? `0${lastUpdated.getUTCHours()}` : lastUpdated.getUTCHours()}:${mins} ${lastUpdated.getHours() > 12 ? "PM" : "AM"}`
+  const time = `${lastUpdated.getUTCDate()}/${lastUpdated.getUTCMonth() + 1}/${lastUpdated.getFullYear().toString().substring(2,)} ${lastUpdated.getUTCHours() < 12 ? `0${lastUpdated.getUTCHours()}` : lastUpdated.getUTCHours()}:${mins} ${lastUpdated.getUTCHours() > 12 ? "PM" : "AM"}`
   return (
     <Card>
       {loading ? (
