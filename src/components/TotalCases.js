@@ -5,19 +5,21 @@ import { LoadingParas, LoadingHeaders, LoadingCircle } from './LoadingUtils';
 const TotalCases = ({ data, flag, loading, countryChange }) => {
   const fatalityRate = ((data.deaths / data.cases) * 100).toFixed(2);
   const recoveryRate = ((data.recovered / data.cases) * 100).toFixed(2);
-
+  const lastUpdated = new Date(data.updated);
+  const mins = ('0' + lastUpdated.getUTCMinutes()).slice(-2);
+  const time = `${lastUpdated.getUTCDate()}/${lastUpdated.getUTCMonth() + 1}/${lastUpdated.getFullYear().toString().substring(2,)} ${lastUpdated.getUTCHours() < 12 ? `0${lastUpdated.getUTCHours()}` : lastUpdated.getUTCHours()}:${mins} ${lastUpdated.getHours() > 12 ? "PM" : "AM"} `
   return (
     <Card>
       {loading ? (
         <LoadingCircle />
       ) : (
-        <h2 id='country-name'>
-          {data.country}
-          <span>
-            <img src={flag} alt={data.country} className='img-flag' onClick={countryChange} />
-          </span>
-        </h2>
-      )}
+          <h2 id='country-name'>
+            {data.country}
+            <span>
+              <img src={flag} alt={data.country} className='img-flag' onClick={countryChange} />
+            </span>
+          </h2>
+        )}
 
       <div id='card-container'>
         <div className='card'>
@@ -27,6 +29,7 @@ const TotalCases = ({ data, flag, loading, countryChange }) => {
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.todayCases}</LoadingHeaders>
           <LoadingParas loading={loading}>New Cases</LoadingParas>
+          <p>{!loading && time}</p>
         </div>
         <div className='card'>
           <LoadingHeaders loading={loading}>{data.active}</LoadingHeaders>
@@ -117,6 +120,7 @@ const Card = styled.div`
       .text-red {
         color: #f73859;
       }
+      
     }
   }
   @media (max-width: 680px) {
