@@ -20,22 +20,39 @@ const Home = ({
   countryChange,
 }) => {
   return (
-    <div id='total-cases'>
+    <div id="total-cases">
       <TodayDate darkMode={darkMode} darkModeFunc={darkModeFunc} />
-      <TotalCases data={data} flag={flag} loading={loading} countryChange={countryChange} />
-      <BtnContainer id='btn-container'>
-        <CustomBtn onClick={() => setDeathTimeline(showDeathsTimeline)} black>
-          {!showDeathsTimeline ? 'Deaths' : 'Confirmed'} <FontAwesomeIcon icon={faSyncAlt} />
+      <TotalCases
+        data={data}
+        flag={flag}
+        loading={loading}
+        countryChange={countryChange}
+      />
+      <BtnContainer id="btn-container">
+        <CustomBtn
+          onClick={() => setDeathTimeline(showDeathsTimeline)}
+          black
+          to="#">
+          {!showDeathsTimeline ? 'Deaths' : 'Confirmed'}{' '}
+          <FontAwesomeIcon icon={faSyncAlt} />
         </CustomBtn>
-        <CustomBtn to='/graph'>
+        <CustomBtn to="/graph">
           Graphs <FontAwesomeIcon icon={faArrowRight} />
         </CustomBtn>
       </BtnContainer>
       {!showDeathsTimeline && (
-        <HistoryCases history={history} title='Timeline: Confirmed Cases' loading={loading} />
+        <HistoryCases
+          history={history}
+          title="Timeline: Confirmed Cases"
+          loading={loading}
+        />
       )}
       {showDeathsTimeline && (
-        <HistoryCases title='Timeline: Deaths' history={historyDeaths} loading={loading} />
+        <HistoryCases
+          title="Timeline: Deaths"
+          history={historyDeaths}
+          loading={loading}
+        />
       )}
     </div>
   );

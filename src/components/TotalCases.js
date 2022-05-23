@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LoadingParas, LoadingHeaders, LoadingCircle } from './LoadingUtils';
+import { LoadingParas, LoadingHeaders, LoadingCircle } from './loadingUtils';
 
 const TotalCases = ({ data, flag, loading, countryChange }) => {
   const fatalityRate = ((data.deaths / data.cases) * 100).toFixed(2);
@@ -11,34 +11,39 @@ const TotalCases = ({ data, flag, loading, countryChange }) => {
       {loading ? (
         <LoadingCircle />
       ) : (
-          <h2 id='country-name'>
-            {data.country}
-            <span>
-              <img src={flag} alt={data.country} className='img-flag' onClick={countryChange} />
-            </span>
-          </h2>
-        )}
+        <h2 id="country-name">
+          {data.country}
+          <span>
+            <img
+              src={flag}
+              alt={data.country}
+              className="img-flag"
+              onClick={countryChange}
+            />
+          </span>
+        </h2>
+      )}
 
-      <div id='card-container'>
-        <div className='card'>
+      <div id="card-container">
+        <div className="card">
           <LoadingHeaders loading={loading}>{data.cases}</LoadingHeaders>
           <LoadingParas loading={loading}>Confirmed Cases</LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>{data.todayCases}</LoadingHeaders>
           <LoadingParas loading={loading}>New Cases</LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>{data.active}</LoadingHeaders>
           <LoadingParas loading={loading}>Active cases</LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>{data.recovered}</LoadingHeaders>
-          <LoadingParas loading={loading} className='text-green'>
+          <LoadingParas loading={loading} className="text-green">
             Recovered
           </LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>
             {data.critical === 0 ? data.tests : data.critical}
           </LoadingHeaders>
@@ -46,17 +51,17 @@ const TotalCases = ({ data, flag, loading, countryChange }) => {
             {data.critical === 0 ? 'Tests Conducted' : 'Criticals'}
           </LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>{data.deaths}</LoadingHeaders>
-          <LoadingParas loading={loading} className='text-red'>
+          <LoadingParas loading={loading} className="text-red">
             Total Deaths
           </LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>{fatalityRate}%</LoadingHeaders>
           <LoadingParas loading={loading}>Fatality Rate</LoadingParas>
         </div>
-        <div className='card'>
+        <div className="card">
           <LoadingHeaders loading={loading}>{recoveryRate}%</LoadingHeaders>
           <LoadingParas loading={loading}>Recovery Rate</LoadingParas>
         </div>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import './App.scss';
 import Navbar from './components/layout/Navbar';
 import Graph from './components/pages/Graph';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Page404 from './components/pages/404page';
@@ -50,38 +49,48 @@ function App() {
       setCases(countryCodeName[0]);
     }
   };
-  const setCases = async (name) => {
+
+  const getApiData = async (url, name, url2) => {
     try {
-      const [resAPI1, resAPI2] = await Promise.all([
-        axios.get('https://disease.sh/v3/covid-19/countries/' + name + '?yesterday=true&strict=true&allowNull=true'),
-        axios.get(
-          'https://disease.sh/v3/covid-19/historical/' +
-          name +
-          '?lastdays=all'
-        ),
-      ]);
-
-      const flagSrc = resAPI1.data.countryInfo.flag;
-      setData(resAPI1.data)
-      setFlag(flagSrc);
-
-
-      const timelineAPI = resAPI2.data.timeline.cases;
-      const timelineDeathsAPI = resAPI2.data.timeline.deaths;
-      setTimeline(Object.entries(timelineAPI));
-      setTimelineDeaths(Object.entries(timelineDeathsAPI));
-      isLoading(false);
+      const response = await fetch(url + name + url2, { method: 'GET' });
+      return response.json();
     } catch (error) {
       console.log(error);
       toast.error('Server Error. Please come back later..');
     }
   };
 
-  const setDeathTimeline = (isSelected) => {
+  const setCases = name => {
+    getApiData(
+      'https://disease.sh/v3/covid-19/countries/',
+      name,
+      '?yesterday=true&strict=true&allowNull=true',
+    ).then(data => {
+      const flagSrc = data.countryInfo.flag;
+      setData(data);
+      setFlag(flagSrc);
+      console.log(data);
+    });
+
+    getApiData(
+      'https://disease.sh/v3/covid-19/historical/',
+      name,
+      '?lastdays=all',
+    ).then(data => {
+      console.log(data);
+      const timelineAPI = data.timeline.cases;
+      const timelineDeathsAPI = data.timeline.deaths;
+      setTimeline(Object.entries(timelineAPI));
+      setTimelineDeaths(Object.entries(timelineDeathsAPI));
+      isLoading(false);
+    });
+  };
+
+  const setDeathTimeline = isSelected => {
     setShowDeathsTimeline(!isSelected);
   };
 
-  const setDarkModeFunc = (isSelected) => {
+  const setDarkModeFunc = isSelected => {
     setDarkMode(!isSelected);
   };
 
@@ -89,15 +98,14 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <div className={darkMode ? 'dark-mode' : 'light-mode'}>
         <Navbar />
-        <div className='container'>
+        <div className="container">
           <ToastContainer />
-          <Switch>
+          <Routes>
             <Route
               exact
-              path='/'
-              render={(props) => (
+              path="/"
+              element={
                 <Home
-                  {...props}
                   data={data}
                   flag={flag}
                   loading={loading}
@@ -109,22 +117,21 @@ function App() {
                   darkMode={darkMode}
                   countryChange={countryChange}
                 />
-              )}
+              }
             />
             <Route
               exact
-              path='/graph'
-              render={(props) => (
+              path="/graph"
+              element={
                 <Graph
-                  {...props}
                   dataGraph={timeline}
                   historyDeaths={timelineDeaths}
                   darkMode={darkMode}
                 />
-              )}
+              }
             />
-            <Route exact path='*' render={(props) => <Page404 {...props} darkMode={darkMode} />} />
-          </Switch>
+            <Route exact path="*" element={<Page404 darkMode={darkMode} />} />
+          </Routes>
         </div>
       </div>
     </Router>
